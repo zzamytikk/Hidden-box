@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html><div id="hLoad" style="z-index:999;position:fixed;top:0;right:0;width:100%;height:2px;background:red;transition:1s;"></div><!-- Загрузка сайта -->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Окно ✓ Плавное поивление `Инфо-Меню`</title>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Comfortaa|Istok+Web:400,700&amp;subset=cyrillic" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  
+  <!-- ucoz -->
+  <link href="https://zam.usite.pro/css/z.css" rel="stylesheet">
+  <script src="https://zam.usite.pro/js/z.js" defer></script>
+  
+  <!-- Для шаблона www (Для всех шаблонов): -->
+  <link !href="https://zam.usite.pro/db/all/Git/gl/gl.css" rel="stylesheet">
+  <script !src="https://zam.usite.pro/db/all/Git/gl/gl.js" defer></script>
+  <!-- Для шаблона localhost: -->
+  <link href="/gl/gl.css" rel="stylesheet">
+  <script src="/gl/gl.js" defer></script>
+
+  <!-- Измени путь на свой проект: -->
+  <link href="/.../1-0-0/ok.css" rel="stylesheet">
+  <script src="/.../1-0-0/ok.js" defer></script>
+</head>
+<body><div id="M"><div></div></div>
+  <header><nav></nav></header>
+  <main>
+   <h4 class="hr-n1 hr-L all-c7"><b>Презентация:</b></h4> 
+   <!-- ••• Презентация НАЧАЛО:
+   <fieldset class="all-c1">
+     <legend>Пример меню</legend>
+     <h4 class="hr-n1 hr-L" style="---hr-Ct: var(--Ct)"><b>Горизонтально:</b></h4>
+     <iframe src="/zMenu/primerG.html" frameborder="0" style="width: 100%; height: 1.5em;"></iframe>
+   
+     <h4 class="hr-n1 hr-L" style="---hr-Ct: var(--Ct)"><b>Вертикально:</b></h4>
+     <iframe src="/zMenu/primerV.html" frameborder="0" style="width: 100%; height: 150px;"></iframe>
+   </fieldset>
+   ••• -->
+   
+   <link href="/db/publ/zMenu/1-0-0/m.css" rel="stylesheet">
+   <script src="/db/publ/zMenu/1-0-0/m.js" defer></script>
+   
+   <p class="ram-V2 gI-inf all-c1">Описание</p>
+   <p class="ram-V2 gI-inf all-c2">Возможности</p>
+   
+    <!-- HTML пример -->
+    <pre class="ram-n0 all-c5" data-ram-zag="HTML" id="cod"><code class="v-BG0">
+    &lt;!-- Добавить в &lt;head>..&lt;/head>: -->
+    &lt;script src="https://code.jquery.com/jquery-3.7.1.min.js" defer>&lt;/script><!-- Библиотека jQuery -->
+    &lt;link href="https://zam.usite.pro/db/publ/zMenu/1-0-0/m.css" rel="stylesheet"><!-- Вид `Меню` -->
+    &lt;script src="https://zam.usite.pro/db/publ/zMenu/1-0-0/m.js" defer>&lt;/script><!-- Мозг `Меню` -->
+    </code></pre>
+    
+    <b style="color:red">►</b> Исходники: <a href="https://github.com/zzamytikk/Menu/tree/main/zMenu/1-0-0" target="_blank">css, js</a>
+     
+    <h4 class="hr-n1 hr-L" style="---hr-Ct: var(--Ct)"><b>Для запуска:</b></h4>
+    <!-- HTML пример -->
+    <pre class="ram-n0 all-c5" data-ram-zag="HTML" id="cod"><code class="v-BG0">
+    &lt;!-- Добавить в &lt;body>..&lt;/body>: -->
+    &lt;script>
+    &nbsp;&nbsp;document.addEventListener('DOMContentLoaded', () => {
+    &nbsp;&nbsp;&nbsp;&nbsp;zMenu.$();//★ Запускаем Меню
+    &nbsp;&nbsp;});
+    &lt;/script>
+    </code></pre>
+    <!-- ••• Презентация КОНЕЦ ••• -->
+  </main>
+  <footer></footer>
+
+  <script>
+    let e = document.querySelector('#hLoad');
+    setTimeout(() => {//Загрузка сайта
+      e.style.width = '70%';
+    },1);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      gl.$();//Запуск инструментов (bg,resize,menu...)
+      z.z.Start.$();
+      
+      setTimeout(() => {//Загрузка сайта
+        e.style.width=0;
+        e.style.background='#0b0';
+      },2);
+    });
+  </script>
+</body>
+</html>
+<!--
+    <fieldset class="all-c1">
+        <legend>Панель управления</legend>
+        текст
+    </fieldset>
+    &nbsp;	Неразрывный пробел
+< 	&lt;	  Знак "меньше чем" (начало тега)
+>	  &gt;	  Знак "больше чем" (конец тега)
+"	  &quot;	Двойная кавычка
+' 	&apos;	Апостроф (одинарная кавычка)
+•   &bull;
+-->
+<!-- +HTML:
+    100% для мах 1 блока в ряд:
+    <div class="flex-w">
+        <div>1</div>
+    </div>
+------------------------
+    50% для мах 2 блоков в ряд:
+    <div class="flex-w" style="---flexW:50%">
+        <div>1</div>
+        <div>2</div>
+    </div>
+-----------------------
+    33.3% для мах 3 блоков в ряд:
+    <div class="flex-w" style="---flexW:33.3%">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+-----------------------
+    25% для мах 4 блоков в ряд:
+    <div class="flex-w" style="---flexW:25%">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+    =========================
+
+    <style> Разтяним на всё
+        .flex-w {
+            height: 100%;
+        }
+        .flex-w > * {
+            padding: 3px;
+        }
+        .flex-w button {
+            width: 100%;
+            height: calc(100% - 1.9rem);
+            font-size: var(---med-B-20-22-26);
+        }
+    </style>
+-->
