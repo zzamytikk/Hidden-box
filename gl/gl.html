@@ -20,50 +20,46 @@
   <script src="/gl/gl.js" defer></script>
 
   <!-- Измени путь на свой проект: -->
-  <link href="/.../1-0-0/ok.css" rel="stylesheet">
-  <script src="/.../1-0-0/ok.js" defer></script>
+  <link href="/zHid/1-0-0/ok.css" rel="stylesheet">
+  <script src="/zHid/1-0-0/ok.js" defer></script>
 </head>
 <body><div id="M"><div></div></div>
   <header><nav></nav></header>
   <main>
-   <h4 class="hr-n1 hr-L all-c7"><b>Презентация:</b></h4> 
-   <!-- ••• Презентация НАЧАЛО:
-   <fieldset class="all-c1">
-     <legend>Пример меню</legend>
-     <h4 class="hr-n1 hr-L" style="---hr-Ct: var(--Ct)"><b>Горизонтально:</b></h4>
-     <iframe src="/zMenu/primerG.html" frameborder="0" style="width: 100%; height: 1.5em;"></iframe>
-   
-     <h4 class="hr-n1 hr-L" style="---hr-Ct: var(--Ct)"><b>Вертикально:</b></h4>
-     <iframe src="/zMenu/primerV.html" frameborder="0" style="width: 100%; height: 150px;"></iframe>
-   </fieldset>
-   ••• -->
-   
-   <link href="/db/publ/zMenu/1-0-0/m.css" rel="stylesheet">
-   <script src="/db/publ/zMenu/1-0-0/m.js" defer></script>
-   
-   <p class="ram-V2 gI-inf all-c1">Описание</p>
-   <p class="ram-V2 gI-inf all-c2">Возможности</p>
-   
-    <!-- HTML пример -->
-    <pre class="ram-n0 all-c5" data-ram-zag="HTML" id="cod"><code class="v-BG0">
-    &lt;!-- Добавить в &lt;head>..&lt;/head>: -->
-    &lt;script src="https://code.jquery.com/jquery-3.7.1.min.js" defer>&lt;/script><!-- Библиотека jQuery -->
-    &lt;link href="https://zam.usite.pro/db/publ/zMenu/1-0-0/m.css" rel="stylesheet"><!-- Вид `Меню` -->
-    &lt;script src="https://zam.usite.pro/db/publ/zMenu/1-0-0/m.js" defer>&lt;/script><!-- Мозг `Меню` -->
-    </code></pre>
+    <h4 class="hr-n1 hr-L all-c7"><b>Презентация:</b></h4> 
+    <!-- ••• Презентация НАЧАЛО: ••• -->
+    <p class="ram-V2 gI-inf all-c1">Скрыть/Показать элемент</p>
     
-    <b style="color:red">►</b> Исходники: <a href="https://github.com/zzamytikk/Menu/tree/main/zMenu/1-0-0" target="_blank">css, js</a>
-     
-    <h4 class="hr-n1 hr-L" style="---hr-Ct: var(--Ct)"><b>Для запуска:</b></h4>
-    <!-- HTML пример -->
-    <pre class="ram-n0 all-c5" data-ram-zag="HTML" id="cod"><code class="v-BG0">
-    &lt;!-- Добавить в &lt;body>..&lt;/body>: -->
-    &lt;script>
-    &nbsp;&nbsp;document.addEventListener('DOMContentLoaded', () => {
-    &nbsp;&nbsp;&nbsp;&nbsp;zMenu.$();//★ Запускаем Меню
-    &nbsp;&nbsp;});
-    &lt;/script>
-    </code></pre>
+    <fieldset class="all-c1">
+      <legend>Панель управления</legend>
+      fieldset legend div без: .zHidX
+    </fieldset>
+    <hr>
+    <fieldset class="zHidX all-c1">
+        <legend>Панель управления</legend>
+        <div>
+          fieldset legend div .zHidX
+        </div>
+    </fieldset>
+    
+    <fieldset class="zHid all-c1">
+        <legend>Панель управления</legend>
+        fieldset legend div .zHid
+    </fieldset>
+    
+    <h4 class="hr-n1 hr-L" style="---hr-Ct: var(--Ct)"><b>Без заголовка:</b></h4> 
+    <div class="zHidX all-c1">
+      <div>
+        div h4 div .zHidX
+      </div>
+    </div>
+    
+    <div class="zHid all-c1" zhid>
+      <button class="B-I-hid"></button>
+      div h4 div .zHid
+    </div>
+
+
     <!-- ••• Презентация КОНЕЦ ••• -->
   </main>
   <footer></footer>
