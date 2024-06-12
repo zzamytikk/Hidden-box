@@ -381,19 +381,21 @@
   pointer-events: none;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
-
-[zhid="1"] {
-  max-height: var(--zHidH);
-}
-[zhid="1"]::after {
-  content: ''
-}
-[zhid="1"]>button:first-child::after {
-  content: '√';
-  color: var(--zHidCt);
+@media (min-width: 769px) {/* 769 больше или равно */
+  /* Тут @media уперает двойное закрытие */
+  [zhid="1"] {
+    max-height: var(--zHidH);
+  }
+  [zhid="1"]::after {
+    content: ''
+  }
+  [zhid="1"]>button:first-child::after {
+    content: '√';
+    color: var(--zHidCt);
+  }
 }
 /* Авто закрытие всего когда экран меньше 768px */
-@media (max-width: 768px) {/* до 768 */
+@media (max-width: 768px) {/* меньше или ровно 768 */
   [zhid]:not([zhid="0"]) {
     max-height: var(--zHidH);
   }
