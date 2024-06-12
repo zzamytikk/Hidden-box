@@ -4,44 +4,32 @@
 */
 /* Иногда надо устаноаить [id="x"]
     Для понижения приоритета при задавание css через [id="x"] {moj:1;} */
-
-/* ✦ fieldset Рамка + Заголовок ✦ *//* #region */
-fieldset {
-  --fie-Ct: var(--all-C);/* title, border, border-imege fie-n0/fie-n1 */
-  --fie-b-sh: var(--all-b-sh); /* box-shadow fie-n0/fie-n1 */
-  margin: 9px 2px 0 2px;
-  padding: 4px 9px 12px 9px;
-  width: calc(100% - 4px);/* 4 margin */
-  min-width: 0%; /* убераем выход рамки за пределы(когда внутри white-space: nowrap;) */
-  font-size: 1em;
-  border-radius: 5px;
-  border: 1px solid var(--fie-Ct);
-  box-shadow: 0 3px 5px var(--fie-b-sh);
+[class*="ram-n"], [zhid], [zhid] > button:first-child,
+#x::after, #x::before,
+#x *, #x *::after, #x *::before {/* Помогает интеграции на любой сайт */
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  line-height: 1.1;
+  font: inherit;
 }
-
-legend {
-  padding: 0 9px;
-  font-weight: 600;
-  color: var(--fie-Ct);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* ✦ <fieldset Рамка + Заголовок ✦ *//* #endregion */
 
 /* ✦ Рамки .ram / Загаловки для Рамок ✦ *//* #region */
     /* ✦✦ ! ✦✦ *//* #region */
 [class*="ram-n"] {/* Полезное */
-    ---ram-C: var(--all-C);/* текст */
-    ---ram-Ct: var(--all-C);/* color, box-shadow inset */
-    ---ram-b-sh: var(--all-Ct);/*  box-shadow */
-    display: block;
-    margin: 5px;
-    padding: 7px;
-    /* width: calc(100% - 10px); *//* Убераем выход за пределы родителя (margin: 0 5px) */
-    color: var(---ram-C);
-    font-size: var(---med-B-12-14-16);
-    font-weight: 400;
+  --ram-C: var(--all-C);/* текст */
+  --ram-Ct: var(--all-C);/* color, box-shadow inset */
+  --ram-b-sh: var(--all-Ct);/*  box-shadow */
+  display: block;
+  margin: 5px;
+  padding: 7px;
+  /* width: calc(100% - 10px); *//* Убераем выход за пределы родителя (margin: 0 5px) */
+  color: var(--ram-C);
+  font-size: 1em;
+  font-weight: 400;
 }
 
 [class*="ram-n"] i {/* uCoz */
@@ -51,7 +39,7 @@ legend {
 
     /* ✦✦ .all-c.. Цвета ✦✦ *//* #region */
 [class*="ram-n"].all-c8 {
-    ---ram-b-sh: #fff4;
+    --ram-b-sh: #fff4;
 }
     /* ✦✦ .all-c.. Цвета ✦✦ *//* #endregion */
 
@@ -62,7 +50,7 @@ legend {
 .ram-n0 {
     border: 1px solid #0000;
     border-radius: 5px;
-    box-shadow: inset 0 0 2px var(---ram-Ct),0 0 5px var(---ram-b-sh);
+    box-shadow: inset 0 0 2px var(--ram-Ct),0 0 5px var(--ram-b-sh);
 }
         /* ✦✦✦ 0 Просто ✦✦✦ *//* #endregion */
 
@@ -70,11 +58,11 @@ legend {
             /* ✦✦✦✦ ! ✦✦✦✦ *//* #region */
 .ram-n1,
 .ram-n1-1 > div {
-    ---ram-n1-1-bl: #ddd;
+    --ram-n1-1-bl: #ddd;
     position: relative;/* Ucoz */
-    margin: 20px 5%;
+    margin: 20px 4%;
     padding-left: 2%;
-    border-left: 1px solid var(---ram-n1-1-bl);
+    border-left: 1px solid var(--ram-n1-1-bl);
 }
             /* ✦✦✦✦ ! ✦✦✦✦ *//* #endregion */
 
@@ -91,7 +79,7 @@ legend {
     top: 50%;
     left: -17px;
     transform: translate(0, -50%);
-    font-size: var(---med-B-10-11-12);
+    font-size: .8em;
     font-weight: 600;
     color: var(--lin5-4);
     writing-mode: sideways-lr;
@@ -125,17 +113,17 @@ legend {
 /* +HTML <p class="ram-n2 all-c1">Обычный блок с текстом.</p> */
             /* ✦✦✦✦ ! ✦✦✦✦ *//* #region */
 .ram-n2 {
-    ---ram-bg: var(--all-bg-93, --C5-7-93);/* Цвет фона */
-    ---ram-b-sh: var(--all-b-sh, --C5-53-4);/* Цвет тени внутри контенера */
-    background: var(---ram-bg);
-    border: 1px solid var(---ram-Ct);
+    --ram-bg: var(--all-bg-93, --C5-7-93);/* Цвет фона */
+    --ram-b-sh: var(--all-b-sh, --C5-53-4);/* Цвет тени внутри контенера */
+    background: var(--ram-bg);
+    border: 1px solid var(--ram-Ct);
     border-radius: 4px;
-    box-shadow: 0 0 4px #000, inset 0 0 1px var(---ram-b-sh);
+    box-shadow: 0 0 4px #000, inset 0 0 1px var(--ram-b-sh);
 }
 
 .tema8 .ram-n2.all-c8 {
-    ---ram-Ct: #fff;
-    ---ram-C: #fff;
+    --ram-Ct: #fff;
+    --ram-C: #fff;
 }
             /* ✦✦✦✦ ! ✦✦✦✦ *//* #endregion */
         /* ✦✦✦ 2 ✦✦✦ *//* #endregion */
@@ -165,7 +153,7 @@ legend {
     overflow: hidden;       /* Обрезаем все, что не помещается в область */
     text-overflow: ellipsis;/* Добавляем многоточие */
     /* --------------------------- */
-    text-shadow: 0 0 3px var(---ram-Ct),0 0 2px var(---ram-Ct),0 0 3px var(---ram-Ct);
+    text-shadow: 0 0 3px var(--ram-Ct),0 0 2px var(--ram-Ct),0 0 3px var(--ram-Ct);
 }
     /* ✦✦ Загаловки для Рамок data-ram-zag ✦✦ *//* #endregion */
 
@@ -187,7 +175,7 @@ legend {
 */
 
 .ram-V0 b {
-    color: var(---ram-C);
+    color: var(--ram-C);
 }
 
 .ram-V0 > p b::before,
@@ -222,17 +210,17 @@ legend {
     </div>
 </div>
 */
-
-.ram-V1, [class*="ram-V1-"] {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: left;
+[class*="ram-V1-"] {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
 }
 
-:is(.ram-V1, [class*="ram-V1-"]) > div {
+[class*="ram-V1"] > div {
     display: inline-flex;
     flex-wrap: wrap;
     align-content: space-evenly;
+    margin: 5px;
     width: 20%;
     min-width: 150px;
     min-height: 3.5em;
@@ -282,16 +270,19 @@ legend {
     justify-content: center;/* По центру */
 }
 .ram-n1-1.ram-V1-1X {
-    ---ram-b-sh: var(--C-);/* Без полосы */
+    --ram-b-sh: var(--C-);/* Без полосы */
+}
+.ram-n1-1.ram-V1-1X > div {
+  padding: 0;
 }
 
 [class*="ram-V1-1"] > div {
     color: var(--all-C);
-    ---ram-n1-1-bl: var(---ram-b-sh);/* border-left */
+    --ram-n1-1-bl: var(--ram-b-sh);/* border-left */
 }
 
 .ram-n1-1.all-c5-1 {/* Цвет серый слабый */
-    ---ram-b-sh: var(--lin5-2);
+    --ram-b-sh: var(--lin5-2);
 }
         /* ✦✦✦ .ram-V1-1 ✦✦✦ *//* #endregion */
 
@@ -323,15 +314,96 @@ legend {
     /* ✦✦ .ram-.. Внутри рамок (Полезное/Цитаты, class/id)  ✦✦ *//* #endregion */
 /* ✦ Рамки .ram / Загаловки для Рамок ✦ *//* #endregion */
 
-/* ✦ Скрыть/Показать zhid="" .hid-n(0-9) ✦ *//* #region */
-/* zhid=""  -  Открыто
-   zhid="1" -  Закрыто
-
+/* ✦ Открыть/Закрыть [zhid] .zHid ✦ *//* #region */
+/* • Закрыто: (zhid="{цифра}" || style="--zHidX:{цыфра};")
+      <div zhid="1"
+   • Автозакрытие: (При первой загрузке страницы и когда экран меньше 768px.)
+      <div zhid="0" Уберёт автозакрытие
+   
+   • Видемость при закрытии: (style="zHid:{цыфры}ex")
+      <div style="--zHid:3ex"
+      <div style="--zHid:7ex"
+      undefined = 4ex
+        ex - Высота шрифта в нижнем регистре
+        ✓  - Можно использовать все виды: px, em ...
+    
+   • Открыть/Закрыть
+      <button>
+   
+  <div style="--zHid:3" zhid="1"><button>V</button>
+    Открыто! data-ram-zag="HTML"
+    <s>r</s> Панель упр ав ления Панель управ ления Панель управ ления Панель управ ления
+    Панель управ ления Панель управ ления Панель управ ления Панель управ ления 
+    Панель управ ления Панель управ ления Панель управ ления Панель управ ления
+  </div>
 */
-hid-n1 {
-  
+    /* ✦✦ .tema(8-9) Расцветка ✦✦ *//* #region */
+/* • Для тёмного фона добавим class
+      в: <body class="tema9"
+   
+   По умолчанию белый фон!
+*/
+.tema9 [zhid] {/* Тёмный */
+  --bg: #012;  /* background Фон сайта */
+  --Ct: #ccc;  /* color текст */
 }
+    /* ✦✦ .tema(8-9) Расцветка ✦✦ *//* #endregion */
+    /* ✦✦ ! ✦✦ *//* #region */
+[zhid] {
+  --zHidC: var(--bg, #fff);/* Цвет затемнения (Обычно цвет заднего фона) */
+  --zHidCt: var(--Ct, #000);/* Цвет button */
+  --zHidH: var(--zHid, 4ex);/* Размер видимого участка при закрытом состоянии */
+  overflow: hidden;
+  max-height: 100%
+}    
 
+[zhid] > button:first-child {z-index: 1;
+  float: right;
+  margin:0 3px;
+  /* Временно: */
+  background: #0000;
+}
+[zhid] > button:first-child::after {
+  content: '∆';
+  color:red;
+}
+    /* ✦✦ ! ✦✦ *//* #endregion */
 
-/* ✦ Скрыть/Показать .zHid ✦ *//* #endregion */
+    /* ✦✦ Закрыто ✦✦ *//* #region */
+        /* ✦✦✦ ! ✦✦✦ *//* #region */
+[zhid]::after {contain: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.5ex;
+  background: linear-gradient(0, var(--zHidC), #0000);
+  pointer-events: none;
+}
+        /* ✦✦✦ ! ✦✦✦ *//* #endregion */
 
+[zhid="1"] {
+  max-height: var(--zHidH);
+}
+[zhid="1"]::after {
+  content: ''
+}
+[zhid="1"]>button:first-child::after {
+  content: '√';
+  color: var(--zHidCt);
+}
+/* Авто закрытие всего когда экран меньше 768px */
+@media (max-width: 768px) {/* до 768 */
+  [zhid]:not([zhid="0"]) {
+    max-height: var(--zHidH);
+  }
+  [zhid]:not([zhid="0"])::after {
+    content: '';
+  }
+  [zhid]:not([zhid="0"]) > button:first-child::after {
+    content: '√';
+    color: var(--zHidCt);
+  }
+}
+    /* ✦✦ Закрыто ✦✦ *//* #endregion */
+/* ✦ Открыть/Закрыть [zhid] ✦ *//* #endregion */
