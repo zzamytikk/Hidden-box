@@ -27,105 +27,92 @@
 <body><div id="M"><div></div></div>
   <header><nav></nav></header>
   <main>
-    <h4 class="hr-n1 hr-L all-c7"><b>Презентация:</b></h4> 
+    <h4 class="hr-n1 hr-L all-c0"><b>Презентация:</b></h4> 
     <!-- ••• Презентация НАЧАЛО: ••• -->
-    <p class="ram-V2 gI-inf all-c1">Скрыть/Показать элемент</p>
+    <p class="ram-V2 gI-inf all-c1">
+      Скрыть/Показать — любое содержание элемента. 
+    </p>
     
-    
-    <div class="ram-n0 all-c1" data-ram-zag="HTML">
-      <div zhid><button></button>
-        Открыто! data-ram-zag="HTML"
-        <s>r</s> Панель управления Панель управ ления Панель управ ления Панель управ ления
-        Панель управ ления Панель управ ления Панель управ ления Панель управ ления 
-        Панель управ ления Панель управ ления Панель управ ления Панель управ ления
+    <style>
+      .prezHid {
+        margin: 7px 0;
+        padding: 5px;
+        border:1px solid green
+      }
+      .prezHid b {
+        color:#09F
+      }
+    </style>
+    <div class="prezHid">
+      <div zhid=""><button></button>
+        <b>zhid=""</b> При первой загрузке HTML страницы:
+          <br>&nbsp;&nbsp;• Экран больше 768px: <i style="color:green">Открыто</i>
+          <br>&nbsp;&nbsp;• Экран меньше 769px: <i style="color:red">Закрыто</i>
+          
+          <pre id="cod" class="ram-n0 all-c5" data-ram-zag="HTML"><code class="v-BG0">
+          &lt;div style="margin: 7px 0; padding: 5px; border: 1px solid green">&lt;!-- style вид рамки -->
+          &nbsp;&nbsp;&lt;div zhid="">&lt;!-- zhid Определяет состояние открыто или закрыто при первой загрузке HTML страницы -->
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;button>&lt;/button>&lt;!-- button кнопка Открыть/Закрыть -->
+          &nbsp;&nbsp;&nbsp;&nbsp;Тут содержание элемента...
+          &nbsp;&nbsp;&lt;/div>
+          &lt;/div>
+          </code></pre>
       </div>
     </div>
     
-    <div class="ram-n0 all-c1" data-ram-zag="HTML">
-      <div class="zakryto" zhid><button></button>
-        Закрыто! data-ram-zag="HTML"
-        <s>r</s> Панель управления Панель управ ления Панель управ ления Панель управ ления
-        Панель управ ления Панель управ ления Панель управ ления Панель управ ления
-        Панель управ ления Панель управ ления Панель управ ления Панель управ ления
-      </div>
-    </div>
-    <div class="ram-n0 all-c1" data-ram-zag="HTML">
-      <div style="--zHid:7ex" zhid="1"><button></button>
-        Закрыто! data-ram-zag="HTML"
-        <s>r</s> Панель управления Панель управ ления
-        <div style="display:inline-block; background: gold; width: 30px; height: 30px">X</div>
-        Панель управ ления Панель управ ления
-        Панель управления Панель управ ления Панель управ ления Панель управ ления
-        Панель управ ления Панель управ ления Панель управ ления Панель управ ления
-      </div>
-    </div>
-    
-    
-    <fieldset class="all-c1">
-      <legend>Панель управ ления</legend>
-      <div zhid><button></button>
-        fieldset legend
-        Закрыто! data-ram-zag="HTML"
-        <s>r</s> Панель управления Панель управ ления Панель управ ления Панель управ ления
-        Панель управ ления Панель управ ления Панель управ ления Панель управ ления
-        Панель управ ления Панель управ ления Панель управ ления Панель управ ления
-      </div>
-    </fieldset>
-    <fieldset class="all-c1">
-        <legend>Панель управ ления</legend>
-        <div>
-          fieldset legend div .zHidX
-        </div>
-    </fieldset>
-    
-   
-    <hr>
-   
-    <div class="ram-n1-1 ram-V1-1X">
-      <div>
-        <p class="ram-n0 all-c0">.all-c0 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c1">.all-c1 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c2">.all-c2 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c3">.all-c3 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c4">.all-c4 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c5">.all-c5 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c6">..all-c6 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c7">.all-c7 Обычный блок с текстом.</p>
-      </div>
-      <div>
-        <p class="ram-n0 all-c8">.all-c8 Обычный блок с текстом.</p>
+    <div class="prezHid">
+      <div zhid="1"><button></button>
+        <b>zhid="1"</b> При первой загрузке HTML страницы:
+          <br>&nbsp;&nbsp;• Экран больше 768px: <i style="color:red">Закрыто</i>
+          <br>&nbsp;&nbsp;• Экран меньше 769px: <i style="color:red">Закрыто</i>
+           
+          <pre id="cod" class="ram-n0 all-c5" data-ram-zag="HTML"><code class="v-BG0">
+          &lt;div style="margin: 7px 0; padding: 5px; border: 1px solid green">&lt;!-- style вид рамки -->
+          &nbsp;&nbsp;&lt;div zhid="1">&lt;!-- zhid Определяет состояние открыто или закрыто при первой загрузке HTML страницы -->
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;button>&lt;/button>&lt;!-- button кнопка Открыть/Закрыть -->
+          &nbsp;&nbsp;&nbsp;&nbsp;Тут содержание элемента...
+          &nbsp;&nbsp;&lt;/div>
+          &lt;/div>
+          </code></pre>
       </div>
     </div>
 
-    <div class="ram-n1-1 ram-V1 all-c1"><!-- Подробно -->
-      <div>
-        <i>Изменение Цвета</i>
-        <b>class</b><p>all-c..</p>
-      </div>
-      <div>
-        <i>Изменение Цвета</i>
-        <b>class</b><p>all-c..</p>
+    <div class="prezHid">
+      <div zhid="0"><button></button>
+        <b>zhid="0"</b> При первой загрузке HTML страницы:
+          <br>&nbsp;&nbsp;• Экран больше 768px: <i style="color:green">Открыто</i>
+          <br>&nbsp;&nbsp;• Экран меньше 769px: <i style="color:green">Открыто</i>
+          
+          <pre id="cod" class="ram-n0 all-c5" data-ram-zag="HTML"><code class="v-BG0">
+          &lt;div style="margin: 7px 0; padding: 5px; border: 1px solid green">&lt;!-- style вид рамки -->
+          &nbsp;&nbsp;&lt;div zhid="0">&lt;!-- zhid Определяет состояние открыто или закрыто при первой загрузке HTML страницы -->
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;button>&lt;/button>&lt;!-- button кнопка Открыть/Закрыть -->
+          &nbsp;&nbsp;&nbsp;&nbsp;Тут содержание элемента...
+          &nbsp;&nbsp;&lt;/div>
+          &lt;/div>
+          </code></pre>
       </div>
     </div>
-
-    <!-- HTML пример -->
-    <pre id="cod" class="ram-n0 all-c5" data-ram-zag="HTML"><code class="v-BG0">
-      &lt;p class="ram-n0 all-c0">Обычный блок с текстом.&lt;/p>
-    </code></pre>
+    
+    <h4 class="hr-n1 hr-L all-c7" style="--hr-Ct: var(--Ct)"><b>Размер видемой области:</b></h4> 
+    <div class="prezHid">
+      <div style="--zHid:2ex" zhid="0"><button></button>
+        Установим style="<b>--zHid:2ex;</b>" размер видемой области.
+        <br>По умолчанию = 4ex.
+        <br>• ex - Высота шрифта в нижнем регистре.
+        <br> &nbsp; &nbsp; &nbsp; &nbsp;- Можно использовать все виды: px, em ...
+       
+          <pre id="cod" class="ram-n0 all-c5" data-ram-zag="HTML"><code class="v-BG0">
+          &lt;div style="margin: 7px 0; padding: 5px; border: 1px solid green">&lt;!-- style вид рамки -->
+          &nbsp; <!-- --zHid:2ex; - Размер видемой области -->
+          &nbsp; &lt;div style="--zHid:2ex" zhid="1">&lt;!-- zhid Определяет состояние открыто или закрыто при первой загрузке HTML страницы -->
+          &nbsp; &nbsp; &lt;button>&lt;/button>&lt;!-- button кнопка Открыть/Закрыть -->
+          &nbsp; &nbsp; Тут содержание элемента...
+          &nbsp; &lt;/div>
+          &lt;/div>
+          </code></pre>
+      </div>
+    </div>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
