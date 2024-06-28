@@ -4,7 +4,7 @@
 */
 /* Иногда надо устаноаить [id="x"]
     Для понижения приоритета при задавание css через [id="x"] {moj:1;} */
-[zhid], [zhid] > button:first-child {/* Помогает интеграции на любой сайт */
+[zhid] > button:first-child {/* Помогает интеграции на любой сайт */
   position: relative;
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@
   outline: 0;
   box-sizing: border-box;
   line-height: 1.1;
-  font: inherit;
+  font-style: inherit;
 }
 
 /* ✦ Открыть/Закрыть [zhid] .zHid ✦ *//* #region */
@@ -36,29 +36,37 @@
     ...
   </div>
 */
-    /* ✦✦ .tema(8-9) Расцветка ✦✦ *//* #region */
-/* • Для тёмного фона добавим class
-      в: <body class="tema9"
+    /* ✦✦ Расцветка под разные фоны сайта ✦✦ *//* #region */
+/* НАСТРАИВАЕМ ПОД СВОЙ САЙТ!!!
+   в <body добавить class="":
+     Примеры:
+     • .tema9   - когда фон сайта чёрный
+     • .tema4-1 - Тёмно-синий сайт
    
    По умолчанию белый фон!
 */
-.tema9 [zhid] {/* Тёмный */
-  --bg: #012;  /* background Фон сайта */
-  --Ct: #ccc;  /* color текст */
+.tema9 [zhid] {/* Чёрный сайт */
+  --bg: #000;  /* background */
 }
-    /* ✦✦ .tema(8-9) Расцветка ✦✦ *//* #endregion */
+.tema4-1 [zhid] {/* Тёмно-синий сайт */
+  --bg: #012;  /* background */
+}
+    /* ✦✦ Расцветка под разные фоны сайта ✦✦ *//* #endregion */
+
     /* ✦✦ ! ✦✦ *//* #region */
 [zhid] {
   --zHidC: var(--bg, #fff);/* Цвет затемнения (Обычно цвет заднего фона) */
-  --zHidCt: var(--Ct, #000);/* Цвет button */
+  --zHidCt: #0b0;/* Цвет button Открыть */
   --zHidH: var(--zHid, 4ex);/* Размер видимого участка при закрытом состоянии */
+  position: relative;
   overflow: hidden;
   max-height: 100%
 }    
 
 [zhid] > button:first-child {z-index: 1;
   float: right;
-  margin:0 3px;
+  right: -5px;
+  margin:0 7px;
   /* Временно: */
   background: #0000;
 }
@@ -70,8 +78,9 @@
 
     /* ✦✦ Закрыто ✦✦ *//* #region */
         /* ✦✦✦ ! ✦✦✦ *//* #region */
-[zhid]::after {contain: '';
-  position: absolute;
+[zhid]::after {
+  contain: '';
+  position: absolute!important;
   left: 0;
   right: 0;
   bottom: 0;
