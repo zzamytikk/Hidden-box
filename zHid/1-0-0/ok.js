@@ -5,7 +5,7 @@
 var zHid = {//Спрятать/Показать hid
   //zHid.$();//★ Спрятать/Показать hid (Запускаем)
   $:() => {//Вешаем click
-    $('[zhid]').find('button:eq(0)').click(e => {
+    $('[zhid] [zhidb]').click(e => {
       zHid.X($(e.target).closest('[zhid]'))
     });
   },

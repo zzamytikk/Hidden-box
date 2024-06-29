@@ -4,7 +4,7 @@
 */
 /* Иногда надо устаноаить [id="x"]
     Для понижения приоритета при задавание css через [id="x"] {moj:1;} */
-[zhid] > button:first-child {/* Помогает интеграции на любой сайт */
+[zhid], [zhid] [zhidb] {/* Помогает интеграции на любой сайт */
   position: relative;
   margin: 0;
   padding: 0;
@@ -63,17 +63,19 @@
   max-height: 100%
 }    
 
-[zhid] > button:first-child {z-index: 1;
+        /* ✦✦✦ button ✦✦✦ *//* #region */
+[zhid] [zhidb] {z-index: 1;
   float: right;
   right: -5px;
   margin:0 7px;
   /* Временно: */
   background: #0000;
 }
-[zhid] > button:first-child::after {
+[zhid] [zhidb]::after {
   content: '∆';
   color:red;
 }
+        /* ✦✦✦ button ✦✦✦ *//* #endregion */
     /* ✦✦ ! ✦✦ *//* #endregion */
 
     /* ✦✦ Закрыто ✦✦ *//* #region */
@@ -90,17 +92,32 @@
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
 @media (min-width: 769px) {/* 769 больше или равно */
-  /* Тут @media уберает двойное закрытие */
+  /* Это @media уберает двойное закрытие */
   [zhid="1"] {
     max-height: var(--zHidH);
   }
-  [zhid="1"]::after {
+  [zhid="1"]::after {/* затемнение */
     content: ''
   }
-  [zhid="1"]>button:first-child::after {
-    content: '√';
+  [zhid="1"] [zhidb]::after {
     color: var(--zHidCt);
   }
+  [zhid="1"] [zhidb=""]::after {
+    content: '√';
+  }
+  
+            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #region */
+  [zhid][zhid="1"] [zhidb]:not([zhidb=""]) {/* Переместим кнопку в низ */
+    position: absolute;
+    bottom: 0;
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  [zhid][zhid="1"] [zhidb]:not([zhidb=""])::after {
+    content: attr(zhidb)' √';
+  }
+            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #endregion */
 }
 /* Авто закрытие всего когда экран меньше 768px */
 @media (max-width: 768px) {/* меньше или ровно 768 */
@@ -110,10 +127,25 @@
   [zhid]:not([zhid="0"])::after {
     content: '';
   }
-  [zhid]:not([zhid="0"]) > button:first-child::after {
-    content: '√';
+  [zhid]:not([zhid="0"]) [zhidb]::after {
     color: var(--zHidCt);
   }
+  [zhid]:not([zhid="0"]) [zhidb=""]::after {
+    content: '√';
+  }
+  
+            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #region */
+  [zhid]:not([zhid="0"]) [zhidb]:not([zhidb=""]) {/* Переместим кнопку в низ */
+    position: absolute;
+    bottom: 0;
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  [zhid]:not([zhid="0"]) [zhidb]:not([zhidb=""])::after {
+    content: attr(zhidb)' √';
+  }
+            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #endregion */
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
 /* ✦ Открыть/Закрыть [zhid] ✦ *//* #endregion */
