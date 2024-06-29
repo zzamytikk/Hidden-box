@@ -4,7 +4,7 @@
 */
 /* Иногда надо устаноаить [id="x"]
     Для понижения приоритета при задавание css через [id="x"] {moj:1;} */
-[zhid], [zhid] [zhidb] {/* Помогает интеграции на любой сайт */
+[zhid] [zhidb] {/* Помогает интеграции на любой сайт */
   position: relative;
   margin: 0;
   padding: 0;
@@ -102,22 +102,9 @@
   [zhid="1"] [zhidb]::after {
     color: var(--zHidCt);
   }
-  [zhid="1"] [zhidb=""]::after {
+  [zhid="1"] [zhidb]::after {
     content: '√';
   }
-  
-            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #region */
-  [zhid][zhid="1"] [zhidb]:not([zhidb=""]) {/* Переместим кнопку в низ */
-    position: absolute;
-    bottom: 0;
-    right: unset;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  [zhid][zhid="1"] [zhidb]:not([zhidb=""])::after {
-    content: attr(zhidb)' √';
-  }
-            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #endregion */
 }
 /* Авто закрытие всего когда экран меньше 768px */
 @media (max-width: 768px) {/* меньше или ровно 768 */
@@ -130,22 +117,9 @@
   [zhid]:not([zhid="0"]) [zhidb]::after {
     color: var(--zHidCt);
   }
-  [zhid]:not([zhid="0"]) [zhidb=""]::after {
+  [zhid]:not([zhid="0"]) [zhidb]::after {
     content: '√';
   }
-  
-            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #region */
-  [zhid]:not([zhid="0"]) [zhidb]:not([zhidb=""]) {/* Переместим кнопку в низ */
-    position: absolute;
-    bottom: 0;
-    right: unset;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  [zhid]:not([zhid="0"]) [zhidb]:not([zhidb=""])::after {
-    content: attr(zhidb)' √';
-  }
-            /* ✦✦✦✦ button Свой текст Открыть ✦✦✦✦ *//* #endregion */
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
 /* ✦ Открыть/Закрыть [zhid] ✦ *//* #endregion */
