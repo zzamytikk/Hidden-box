@@ -62,19 +62,6 @@
   max-height: 100%;
 }
 
-        /* ✦✦✦ Прокрутка scroll ✦✦✦ *//* #region */
-[zhid]:hover {
-  overflow-y: scroll
-}
-[zhid]:hover::after {
-  content: none!important;
-}
-[zhid]:hover [zhidb] {/* button фиксируем на месте */
-  position: sticky;
-  top:0;
-}
-        /* ✦✦✦ Прокрутка scroll ✦✦✦ *//* #endregion */
-
         /* ✦✦✦ button ✦✦✦ *//* #region */
 [zhid] [zhidb] {z-index: 1;
   float: right;
