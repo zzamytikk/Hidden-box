@@ -80,7 +80,6 @@
     /* ✦✦ Закрыто ✦✦ *//* #region */
         /* ✦✦✦ ! ✦✦✦ *//* #region */
 [zhid]::after {
-  content: '';
   position: absolute!important;
   left: 0;
   right: 0;
