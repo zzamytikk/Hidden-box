@@ -80,13 +80,18 @@
     /* ✦✦ Закрыто ✦✦ *//* #region */
         /* ✦✦✦ ! ✦✦✦ *//* #region */
 [zhid]::after {
+  content: '';
   position: absolute!important;
   left: 0;
   right: 0;
   bottom: 0;
-  height: var(--zHidHs);
+  height: 0;/* Для анимации открытия затемнения */
   background: linear-gradient(0, var(--zHidC), #0000);
   pointer-events: none;
+  transition: 1s
+}
+[zhid="0"]::after {/* Открыли! Уберём анимацию*/
+  transition: 0s
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
 @media (min-width: 769px) {/* 769 больше или равно */
@@ -95,13 +100,11 @@
     max-height: var(--zHidH);
   }
   [zhid="1"]::after {/* затемнение */
-    content: ''
+    height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
-  [zhid="1"] [zhidb]::after {
-    color: var(--zHidCt);
-  }
-  [zhid="1"] [zhidb]::after {
+  [zhid="1"] [zhidb]::after {/* button Открыть/Закрыть */
     content: '√';
+    color: var(--zHidCt);
   }
 }
 /* Авто закрытие всего когда экран меньше 768px */
@@ -110,13 +113,11 @@
     max-height: var(--zHidH);
   }
   [zhid]:not([zhid="0"])::after {
-    content: '';
-  }
-  [zhid]:not([zhid="0"]) [zhidb]::after {
-    color: var(--zHidCt);
+    height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
   [zhid]:not([zhid="0"]) [zhidb]::after {
     content: '√';
+    color: var(--zHidCt);
   }
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
