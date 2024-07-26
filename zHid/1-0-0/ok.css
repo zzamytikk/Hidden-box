@@ -55,8 +55,9 @@
     /* ✦✦ ! ✦✦ *//* #region */
 [zhid] {
   --zHidC: var(--bg, #fff);/* Цвет затемнения (Обычно цвет заднего фона) */
-  --zHidCt: #0b0;/* Цвет button Открыть */
   --zHidH: var(--zHid, 4ex);/* Размер видимого участка при закрытом состоянии */
+  --zHidHs: 2.5ex;/* Размер тени */
+  --zHidCt: #0b0;/* Цвет button Открыть */
   position: relative;
   overflow: hidden;
   max-height: 100%;
@@ -84,7 +85,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 2.5ex;
+  height: var(--zHidHs);
   background: linear-gradient(0, var(--zHidC), #0000);
   pointer-events: none;
 }
