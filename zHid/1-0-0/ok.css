@@ -3,16 +3,108 @@
     © Copyright Плюшки для сайтов 2024
 */
 
-[zhid] [zhidb] {/* Помогает интеграции */
+[zhidb], [zhidb] *,
+[zhidb] *::after, [zhidb] *::before {/* Помогает интеграции */
   position: relative;
   margin: 0;
   padding: 0;
   border: 0;
+  border-radius: 0;
   outline: 0;
   box-sizing: border-box;
   line-height: 1.1;
-  font-style: inherit;
+  font-size: inherit;
 }
+
+/* ✦ a, button (.B-L Загрузка...) ✦ *//* #region */
+    /* ✦✦ ! :hover/disabled/.B-L ✦✦ *//* #region */
+[zhidb] {
+  --B-C: #59f;/* Цвет */
+  --B-I-C: var(--B-C);/* Свой цвет иконки <button style="--B-I-C: #fff" */
+  display: inline-flex;
+  align-items: center;/* Для выравнивания по Центру b */
+  padding: 0 2px;
+  /*height: 1.4em;*/
+  font: inherit;
+  /*font-size: 1em;*/
+  color: var(--B-C);
+  background: #0000;
+  cursor: pointer;
+  text-decoration: unset;
+  transition: .3s;
+}
+
+[zhidb]:not([disabled]):hover > *,/* :is(p,b) Затемнение при наведении мышки */
+
+[zhidb]:not(.B-L)[disabled] {/* disabled */
+  opacity: .3;
+}
+/* смартфоны, устройства с сенсорным экраном, с которым работают пальцами */
+@media (hover: none) and (pointer: coarse) {
+  [zhidb]:not([disabled]):hover > *{/* Отжимает opacity.3 (На телефоне остаёдся гореть после нажатия) */
+    opacity: 1;
+    color: var(--B-C);
+  }
+}
+
+[zhidb][disabled] {/* disabled/Загрузка */
+  /* cursor: default; */
+  pointer-events: none;/* Убераем возможнасть нажать */
+}
+[zhidb].B-L > * {/* :is(p,b) Загрузка */
+  opacity: .6;
+}
+    /* ✦✦ ! :hover/disabled/.B-L ✦✦ *//* #endregion */
+/* ✦ a, button (.B-L i Загрузка...) ✦ *//* #endregion */
+
+/* ✦ icon (Свои) ✦ *//* #region */
+    /* ✦✦ ! ✦✦ *//* #region */
+[zhidb] {
+  padding-left: 1em;
+}
+[zhidb]::before {/* Для выравнивания всех в 1 ряд, когда иконка без текста 'Автор zam' */
+  content: 'z';
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[zhidb] p { /* icon */
+  display: inline-flex;/* Центруем для <s */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  /*top: 50%;
+  transform: translate(0, -50%);*/
+  width: 1em;
+  height: 1em;
+}
+    /* ✦✦ ! ✦✦ *//* #endregion */
+/* ✦ icon (Свои) ✦ *//* #endregion */
+
+/* ✦ button.B-I(x) p,s icon ✦ *//* #region */
+    /* ✦✦ ! p,s ✦✦ *//* #region */
+[zhidb] s {
+  transform: translate(0, 0);/* Для корекции отображения */
+}
+[zhidb] s::before,
+[zhidb] s::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;/* Для transition: .7s */
+  width: .8em;
+  height: 1px;/* em не использовать! (выдаст разную толщину) */
+  border: 1px solid var(--B-I-C);
+  background: var(--B-I-C);
+  transform: translate(-50%, -50%);/* коректируем */
+  transition: .7s,/* для красивой смены кнопок .B-Ix-M ☰ => ✘ .B-Ix-X */
+    background .5s, border-color .5s; /* для плавной смены цвета при наведении мышкой */
+}
+    /* ✦✦ ! p,s ✦✦ *//* #endregion */
+/* ✦ button.B-I(x) p,s icon ✦ *//* #endregion */
+
 
 /* ✦ Открыть/Закрыть [zhid] .zHid ✦ *//* #region */
 /* • (zhid="{цифра}" || style="--zHidX:{цыфра};")
@@ -31,7 +123,7 @@
     
    • <button zhidb> - кнопка для Открыть/Закрыть
    
-  <div style="--zHid:3" zhid="1"><button>V</button>
+  <div style="--zHid:3" zhid="1"><button zhidb></button>
     ...
   </div>
 */
@@ -57,22 +149,26 @@
   --zHidC: var(--bg, #fff);/* Цвет затемнения (Обычно цвет заднего фона) */
   --zHidH: var(--zHid, 4ex);/* Размер видимого участка при закрытом состоянии */
   --zHidHs: 2.5ex;/* Размер тени */
-  --zHidCt: #0b0;/* Цвет button Открыть */
   position: relative;
   overflow: hidden;
   max-height: 100%;
 }
 
         /* ✦✦✦ button ✦✦✦ *//* #region */
-[zhid] [zhidb] {z-index: 1;
+[zhidb] {z-index: 1;
   float: right;
-  padding: 0 7px;
-  /* Временно: */
-  background: #0000;
 }
-[zhid] [zhidb]::after {
-  content: '∆';
-  color:red;
+
+[zhidb] s {--B-I-C: #f66}
+[zhidb] s::before {/* Ʌ Закрыть */
+  left: -.17em;
+  width: .44em;
+  transform: translate(-50%, -50%) rotate(-35deg);
+}
+[zhidb] s::after {
+  left: .17em;
+  width: .44em;
+  transform: translate(-50%, -50%) rotate(35deg);
 }
         /* ✦✦✦ button ✦✦✦ *//* #endregion */
     /* ✦✦ ! ✦✦ *//* #endregion */
@@ -102,9 +198,13 @@
   [zhid="1"]::after {/* затемнение */
     height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
-  [zhid="1"] [zhidb]::after {/* button Открыть/Закрыть */
-    content: '√';
-    color: var(--zHidCt);
+  /* button */
+  [zhid="1"] [zhidb] s {--B-I-C: #0b0}
+  [zhid="1"] [zhidb] s::before {/* V Открыть */
+    transform: translate(-50%, -50%) rotate(35deg);
+  }
+  [zhid="1"] [zhidb] s::after {
+    transform: translate(-50%, -50%) rotate(-35deg);
   }
 }
 /* Авто закрытие всего когда экран меньше 768px */
@@ -115,9 +215,13 @@
   [zhid]:not([zhid="0"])::after {
     height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
-  [zhid]:not([zhid="0"]) [zhidb]::after {
-    content: '√';
-    color: var(--zHidCt);
+  /* button */
+  [zhid]:not([zhid="0"]) [zhidb] s {--B-I-C: #0b0}
+  [zhid]:not([zhid="0"]) [zhidb] s::before {/* V Открыть */
+    transform: translate(-50%, -50%) rotate(35deg);
+  }
+  [zhid]:not([zhid="0"]) [zhidb] s::after {
+    transform: translate(-50%, -50%) rotate(-35deg);
   }
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
