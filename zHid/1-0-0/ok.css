@@ -1,4 +1,4 @@
-/*  ✪ https://zam.usite.pro/publ/...
+/*  ✪ https://zam.usite.pro/publ/2-1-0-4
     ✫ Версия 1.0.0
     © Copyright Плюшки для сайтов 2024
 */
@@ -55,6 +55,14 @@
   opacity: .6;
 }
     /* ✦✦ ! :hover/disabled/.B-L ✦✦ *//* #endregion */
+    
+    /* ✦✦ b Текст ✦✦ *//* #region */
+[zhidb] > b {
+  display: block;/* Для выравнивания по Центру */
+  text-align: left;/* Полезно при переносе строки */
+  padding-left: 4px;
+}
+    /* ✦✦ b Текст ✦✦ *//* #endregion */
 /* ✦ a, button (.B-L i Загрузка...) ✦ *//* #endregion */
 
 /* ✦ icon (Свои) ✦ *//* #region */
