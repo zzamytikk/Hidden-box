@@ -51,7 +51,7 @@
   /* cursor: default; */
   pointer-events: none;/* Убераем возможнасть нажать */
 }
-[zhidb].B-L > * {/* :is(p,b) Загрузка */
+[zhidb].B-L > * {/* :is'p,b' Загрузка */
   opacity: .6;
 }
     /* ✦✦ ! :hover/disabled/.B-L ✦✦ *//* #endregion */
