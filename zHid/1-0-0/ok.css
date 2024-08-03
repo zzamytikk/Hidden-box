@@ -3,8 +3,8 @@
     © Copyright Плюшки для сайтов 2024
 */
 
-[zhid] [zhidb], [zhid] [zhidb] *,
-[zhid] [zhidb] *::after, [zhid] [zhidb] *::before {/* Помогает интеграции */
+[zhidb], [zhidb] *,
+[zhidb] *::after, [zhidb] *::before {/* Помогает интеграции */
   position: relative;
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@
 
 /* ✦ a, button (.B-L Загрузка...) ✦ *//* #region */
     /* ✦✦ ! :hover/disabled/.B-L ✦✦ *//* #region */
-[zhid] [zhidb] {
+[zhidb] {
   --B-C: #59f;/* Цвет */
   --B-I-C: var(--B-C);/* Свой цвет иконки <button style="--B-I-C: #fff" */
   display: inline-flex;
@@ -34,30 +34,30 @@
   transition: .3s;
 }
 
-[zhid] [zhidb]:not([disabled]):hover > *,/* :is(p,b) Затемнение при наведении мышки */
+[zhidb]:not([disabled]):hover > *,/* :is(p,b) Затемнение при наведении мышки */
 
-[zhid] [zhidb]:not(.B-L)[disabled] {/* disabled */
+[zhidb]:not(.B-L)[disabled] {/* disabled */
   opacity: .3;
 }
 /* смартфоны, устройства с сенсорным экраном, с которым работают пальцами */
 @media (hover: none) and (pointer: coarse) {
-  [zhid] [zhidb]:not([disabled]):hover > *{/* Отжимает opacity.3 (На телефоне остаёдся гореть после нажатия) */
+  [zhidb]:not([disabled]):hover > *{/* Отжимает opacity.3 (На телефоне остаёдся гореть после нажатия) */
     opacity: 1;
     color: var(--B-C);
   }
 }
 
-[zhid] [zhidb][disabled] {/* disabled/Загрузка */
+[zhidb][disabled] {/* disabled/Загрузка */
   /* cursor: default; */
   pointer-events: none;/* Убераем возможнасть нажать */
 }
-[zhid] [zhidb].B-L > * {/* :is'p,b' Загрузка */
+[zhidb].B-L > * {/* :is'p,b' Загрузка */
   opacity: .6;
 }
     /* ✦✦ ! :hover/disabled/.B-L ✦✦ *//* #endregion */
     
     /* ✦✦ b Текст ✦✦ *//* #region */
-[zhid] [zhidb] > b {
+[zhidb] > b {
   display: block;/* Для выравнивания по Центру */
   text-align: left;/* Полезно при переносе строки */
   padding-left: 4px;
@@ -67,10 +67,10 @@
 
 /* ✦ icon (Свои) ✦ *//* #region */
     /* ✦✦ ! ✦✦ *//* #region */
-[zhid] [zhidb] {
+button[zhidb] {/* button повышаем приоретет */
   padding-left: 1em;
 }
-[zhid] [zhidb]::before {/* Для выравнивания всех в 1 ряд, когда иконка без текста 'Автор zam' */
+[zhidb]::before {/* Для выравнивания всех в 1 ряд, когда иконка без текста 'Автор zam' */
   content: 'z';
   width: 0;
   overflow: hidden;
@@ -78,7 +78,7 @@
   pointer-events: none;
 }
 
-[zhid] [zhidb] p { /* icon */
+[zhidb] p { /* icon */
   display: inline-flex;/* Центруем для <s */
   justify-content: center;
   align-items: center;
@@ -94,11 +94,11 @@
 
 /* ✦ button.B-I(x) p,s icon ✦ *//* #region */
     /* ✦✦ ! p,s ✦✦ *//* #region */
-[zhid] [zhidb] s {
+[zhidb] s {
   transform: translate(0, 0);/* Для корекции отображения */
 }
-[zhid] [zhidb] s::before,
-[zhid] [zhidb] s::after {
+[zhidb] s::before,
+[zhidb] s::after {
   content: '';
   position: absolute;
   top: 0; left: 0;/* Для transition: .7s */
@@ -163,17 +163,17 @@
 }
 
         /* ✦✦✦ button ✦✦✦ *//* #region */
-[zhid] [zhidb] {z-index: 1;
+[zhidb] {z-index: 1;
   float: right;
 }
 
-[zhid] [zhidb] s {--B-I-C: #f66}
-[zhid] [zhidb] s::before {/* Ʌ Закрыть */
+[zhidb] s {--B-I-C: #f66}
+[zhidb] s::before {/* Ʌ Закрыть */
   left: -.17em;
   width: .44em;
   transform: translate(-50%, -50%) rotate(-35deg);
 }
-[zhid] [zhidb] s::after {
+[zhidb] s::after {
   left: .17em;
   width: .44em;
   transform: translate(-50%, -50%) rotate(35deg);
