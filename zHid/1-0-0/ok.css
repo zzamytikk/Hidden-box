@@ -67,7 +67,7 @@
 
 /* ✦ icon (Свои) ✦ *//* #region */
     /* ✦✦ ! ✦✦ *//* #region */
-[zhid] [zhid] [zhidb] {
+[zhid] [zhidb] {
   padding-left: 1em;
 }
 [zhid] [zhidb]::before {/* Для выравнивания всех в 1 ряд, когда иконка без текста 'Автор zam' */
