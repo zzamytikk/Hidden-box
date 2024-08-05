@@ -163,7 +163,7 @@ button[zhidb] {/* button повышаем приоретет */
 }
 
         /* ✦✦✦ button ✦✦✦ *//* #region */
-[zhidb] {z-index: 1;
+[zhidb] {z-index: 3;
   float: right;
 }
 
@@ -183,12 +183,15 @@ button[zhidb] {/* button повышаем приоретет */
 
     /* ✦✦ Закрыто ✦✦ *//* #region */
         /* ✦✦✦ ! ✦✦✦ *//* #region */
-[zhid]::after {
-  content: '';
-  position: absolute!important;
+[zhid]::after, [zhid]::before {
+  position: absolute !important;
   left: 0;
   right: 0;
   bottom: 0;
+}
+        
+[zhid]::after {z-index: 2;
+  content: '';
   height: 0;/* Для анимации открытия затемнения */
   background: linear-gradient(0, var(--zHidC), #0000);
   pointer-events: none;
@@ -196,6 +199,11 @@ button[zhidb] {/* button повышаем приоретет */
 }
 [zhid="0"]::after {/* Открыли! Уберём анимацию*/
   transition: 0s
+}
+
+[zhid]::before {/* Убераем возможномть нажать (Когда закрыто), полезно! */
+  z-index: 1;
+  top: 0;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
 @media (min-width: 769px) {/* 769 больше или равно */
@@ -205,6 +213,9 @@ button[zhidb] {/* button повышаем приоретет */
   }
   [zhid="1"]::after {/* затемнение */
     height: var(--zHidHs);/* Для анимации открытия затемнения */
+  }
+  [zhid="1"]::before {
+    content: '';
   }
   /* button */
   [zhid="1"] [zhidb] s {--B-I-C: #0b0}
@@ -222,6 +233,9 @@ button[zhidb] {/* button повышаем приоретет */
   }
   [zhid]:not([zhid="0"])::after {
     height: var(--zHidHs);/* Для анимации открытия затемнения */
+  }
+  [zhid]:not([zhid="0"])::before {
+    content: '';
   }
   /* button */
   [zhid]:not([zhid="0"]) [zhidb] s {--B-I-C: #0b0}
