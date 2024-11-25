@@ -158,7 +158,6 @@ button[zhidb] {/* button повышаем приоретет */
   --zHidH: var(--zHid, 4ex);/* Размер видимого участка при закрытом состоянии */
   --zHidHs: 2.5ex;/* Размер тени */
   position: relative;
-  overflow: hidden;
   max-height: 100%;
 }
 
@@ -209,6 +208,7 @@ button[zhidb] {/* button повышаем приоретет */
 @media (min-width: 769px) {/* 769 больше или равно */
   /* Это @media уберает двойное закрытие */
   [zhid="1"] {
+    overflow: hidden;
     max-height: var(--zHidH);
   }
   [zhid="1"]::after {/* затемнение */
@@ -229,6 +229,7 @@ button[zhidb] {/* button повышаем приоретет */
 /* Авто закрытие всего когда экран меньше 768px */
 @media (max-width: 768px) {/* меньше или ровно 768 */
   [zhid]:not([zhid="0"]) {
+    overflow: hidden;
     max-height: var(--zHidH);
   }
   [zhid]:not([zhid="0"])::after {
