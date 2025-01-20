@@ -3,8 +3,8 @@
     © Copyright Плюшки для сайтов 2024
 */
 
-[zhidb], [zhidb] *,
-[zhidb] *::after, [zhidb] *::before {/* Помогает интеграции */
+[zhidb], [zhidb] > *,
+[zhidb] > *::after, [zhidb] > *::before {/* Помогает интеграции */
   position: relative;
   margin: 0;
   padding: 0;
