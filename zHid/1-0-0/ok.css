@@ -113,7 +113,6 @@ button[zhidb] {/* button повышаем приоретет */
     /* ✦✦ ! p,s ✦✦ *//* #endregion */
 /* ✦ button.B-I(x) p,s icon ✦ *//* #endregion */
 
-
 /* ✦ Открыть/Закрыть [zhid] .zHid ✦ *//* #region */
 /* • (zhid="{цифра}" || style="--zHidX:{цыфра};")
       <div zhid="1" - Всегда открыто
@@ -168,7 +167,7 @@ button[zhidb] {/* button повышаем приоретет */
 
 [zhidb] s {--B-I-C: #f66}
 [zhidb] s::before {/* Ʌ Закрыть */
-  left: -.17em;
+  left: -.18em;
   width: .44em;
   transform: translate(-50%, -50%) rotate(-35deg);
 }
