@@ -14,7 +14,7 @@ var zHid = {//Спрятать/Показать hid
         )//return true = Ненашли ключ, false = нашли!
       ){
         $(e).on('click.zHid', e => {
-          zHid.X($(e.target).closest('[zhid]'))
+          zHid.X($(e.currentTarget).closest('[zhid]'))
         });
       } else {
         console.debug('Была попытка повторного запуска скрипта zHid.$(click.zHid);', e);
@@ -30,7 +30,7 @@ var zHid = {//Спрятать/Показать hid
   ); */
   X: Z => {//Спрятать/Показать
     //console.debug('zhid="'+Z.attr('zhid')+'",', 'max-height: '+Z.css('max-height'));
-    
+    //console.debug(Z, Z.attr('zhid') != 1 && Z.css('max-height')=='100%'? 'Закрываем':'Открываем');
     if(Z.attr('zhid') != 1 && Z.css('max-height')=='100%'){//Открыто
       Z.attr('zhid', 1);//Закрываем
     } else {//Закрыто
