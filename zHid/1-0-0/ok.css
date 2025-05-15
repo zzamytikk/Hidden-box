@@ -174,7 +174,7 @@ button[zhidb] {/* button повышаем приоретет */
   right: 0;
   bottom: 0;
 }
-        
+
 [zhid]::after {z-index: 2;
   content: '';
   height: 0;/* Для анимации открытия затемнения */
