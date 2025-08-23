@@ -6,7 +6,6 @@ var zHid = {//Спрятать/Показать hid
   //zHid.$();//★ Спрятать/Показать hid (Запускаем)
   $:() => {//Вешаем click
     $('[zhid]').find('[zhidb]:eq(0)').each((i, e) => {
-      //if ($._data($(e)[0], 'events')?.click[0].namespace != 'zHid') { //Проверка ключа (Ключь не совпал! повесим обработчик)
       if(zHid.proNS(//Проверка namespace
           e,//event
           'zHid'//Какой ключь(namespace) ищим
@@ -20,10 +19,6 @@ var zHid = {//Спрятать/Показать hid
         console.debug('Была попытка повторного запуска скрипта zHid.$(click.zHid);', e);
       }
     });
-  
-    /*$('[zhid]').find('[zhidb]:eq(0)').click(e => {
-      zHid.X($(e.target).closest('[zhid]'))
-    });*/
   },
   /* zHid(//Спрятать/Показать
     Z//Путь до $('[zhid]')
@@ -31,11 +26,10 @@ var zHid = {//Спрятать/Показать hid
   X: Z => {//Спрятать/Показать
     //console.debug('zhid="'+Z.attr('zhid')+'",', 'max-height: '+Z.css('max-height'));
     //console.debug(Z, Z.attr('zhid') != 1 && Z.css('max-height')=='100%'? 'Закрываем':'Открываем');
-    if(Z.attr('zhid') != 1 && Z.css('max-height')=='100%'){//Открыто
-      Z.attr('zhid', 1);//Закрываем
-    } else {//Закрыто
-      Z.attr('zhid', 0);//Открываем
-    }
+
+    Z.attr('zhid',
+      +Z.attr('zhid') != 1 && Z.css('max-height')=='100%'//true: Закрываем, false: Открываем
+    );
   },
   /* proNS(//Проверка namespace
       e,//event
@@ -61,21 +55,3 @@ var zHid = {//Спрятать/Показать hid
     return true; //Пусто
   }
 };
-
-/*
-  ★    Название функции
-  *     Описание
-  •     Описание2
-  ◈ ✂ ✓ ✪
-  
-  localStorage.setItem(key, value)
-  localStorage.getItem(key)
-*/
-
-//#region       //✦ Уровень 1 ----
-
-//#endregion    //✦ Уровень 1 ----
-
-//#region           //✦✦ Уровень 2 ----
-
-//#endregion        //✦✦ --------------

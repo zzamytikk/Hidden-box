@@ -156,8 +156,8 @@ button[zhidb] {/* button повышаем приоретет */
   float: right;
 }
 
-[zhidb] s {--B-I-C: #f66}
-[zhidb] s::before {/* Ʌ Закрыть */
+[zhidb] s {--B-I-C: #f66}/* Ʌ Закрыть */
+[zhidb] s::before {
   transform: translate(-50%, -50%) rotate(-35deg);
 }
 [zhidb] s::after {
@@ -175,7 +175,7 @@ button[zhidb] {/* button повышаем приоретет */
   bottom: 0;
 }
 
-[zhid]::after {z-index: 2;
+[zhid]::after {z-index: 2;/* Затемнение */
   content: '';
   height: 0;/* Для анимации открытия затемнения */
   background: linear-gradient(0, var(--zHidC), #0000);
@@ -185,10 +185,17 @@ button[zhidb] {/* button повышаем приоретет */
 [zhid="0"]::after {/* Открыли! Уберём анимацию*/
   transition: 0s
 }
-/* Изменение: 'Запрет нажатия на элементы когда закрыто' ::before */
-[zhid]::before {/* Убераем возможномть нажать (Когда закрыто), полезно! */
+/* Изменение: 'Запрет нажатия/обводка на элементы когда закрыто' ::before */
+[zhid]:not([zhid="0"])::before {/* Убераем возможномть нажать (Когда закрыто), полезно! */
   z-index: 3;
   top: 0;
+}
+/* Уберём возможное нажатие на <button>✓ когда закрыто, для внутрених .zHid2, .zHid3 */
+[zhid]:not([zhid="0"], .zHid2, .zHid3) :is([zhidb="2"], [zhidb="3"]),/* Уровень 1 уберём в Уровень2 и Уровень3 */
+.zHid2:not([zhid="0"]) :is([zhidb="3"]) {/* Уровень2 уберём в Уровень3 */
+  z-index: 2;
+  pointer-events: none;
+  opacity: .4;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
 @media (min-width: 769px) {/* 769 больше или равно */
@@ -200,15 +207,22 @@ button[zhidb] {/* button повышаем приоретет */
   [zhid="1"]::after {/* затемнение */
     height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
-  [zhid="1"]::before {
+  [zhid="1"]::before {/* нажатия/обводка на элементы Разрешена */
     content: '';
   }
   /* button */
-  [zhid="1"] [zhidb] s {--B-I-C: #0b0}
-  [zhid="1"] [zhidb] s::before {/* V Открыть */
+  [zhid="1"] [zhidb] s,
+  .zHid2[zhid="1"] [zhidb="2"] s,
+  .zHid3[zhid="1"] [zhidb="3"] s {--B-I-C: #0b0}
+  
+  [zhid="1"] [zhidb=""] s::before,
+  .zHid2[zhid="1"] [zhidb="2"] s::before,
+  .zHid3[zhid="1"] [zhidb="3"] s::before {/* V Открыть */
     transform: translate(-50%, -50%) rotate(35deg);
   }
-  [zhid="1"] [zhidb] s::after {
+  [zhid="1"] [zhidb=""] s::after,
+  .zHid2[zhid="1"] [zhidb="2"] s::after,
+  .zHid3[zhid="1"] [zhidb="3"] s::after {
     transform: translate(-50%, -50%) rotate(-35deg);
   }
 }
@@ -221,15 +235,22 @@ button[zhidb] {/* button повышаем приоретет */
   [zhid]:not([zhid="0"])::after {
     height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
-  [zhid]:not([zhid="0"])::before {
+  [zhid]:not([zhid="0"])::before {/* нажатия/обводка на элементы Разрешена */
     content: '';
   }
   /* button */
-  [zhid]:not([zhid="0"]) [zhidb] s {--B-I-C: #0b0}
-  [zhid]:not([zhid="0"]) [zhidb] s::before {/* V Открыть */
+  [zhid]:not([zhid="0"]) [zhidb=""] s,
+  .zHid2:not([zhid="0"]) [zhidb="2"] s,
+  .zHid3:not([zhid="0"]) [zhidb="3"] s {--B-I-C: #0b0}
+  
+  [zhid]:not([zhid="0"]) [zhidb=""] s::before,
+  .zHid2:not([zhid="0"]) [zhidb="2"] s::before,
+  .zHid3:not([zhid="0"]) [zhidb="3"] s::before {/* V Открыть */
     transform: translate(-50%, -50%) rotate(35deg);
   }
-  [zhid]:not([zhid="0"]) [zhidb] s::after {
+  [zhid]:not([zhid="0"]) [zhidb=""] s::after,
+  .zHid2:not([zhid="0"]) [zhidb="2"] s::after,
+  .zHid3:not([zhid="0"]) [zhidb="3"] s::after {
     transform: translate(-50%, -50%) rotate(-35deg);
   }
 }
