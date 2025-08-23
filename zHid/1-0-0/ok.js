@@ -28,7 +28,7 @@ var zHid = {//Спрятать/Показать hid
     //console.debug(Z, Z.attr('zhid') != 1 && Z.css('max-height')=='100%'? 'Закрываем':'Открываем');
 
     Z.attr('zhid',
-      +Z.attr('zhid') != 1 && Z.css('max-height')=='100%'//true: Закрываем, false: Открываем
+      +(Z.attr('zhid') != 1 && Z.css('max-height')=='100%')//true: Закрываем, false: Открываем
     );
   },
   /* proNS(//Проверка namespace
