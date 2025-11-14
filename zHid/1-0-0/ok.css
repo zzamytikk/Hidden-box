@@ -57,6 +57,7 @@
   display: block;/* Для выравнивания по Центру */
   text-align: left;/* Полезно при переносе строки */
   padding-left: 4px;
+  font-weight: 400;
 }
     /* ✦✦ b Текст ✦✦ *//* #endregion */
 /* ✦ a, button (.B-L i Загрузка...) ✦ *//* #endregion */
