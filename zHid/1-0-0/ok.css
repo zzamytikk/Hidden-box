@@ -153,7 +153,7 @@ button[zhidb] {/* button повышаем приоретет */
 }
 
         /* ✦✦✦ button ✦✦✦ *//* #region */
-[zhidb] {z-index: 3;
+[zhidb] {z-index: 3!important;
   float: right;
 }
 
