@@ -149,7 +149,7 @@ button[zhidb] {/* button повышаем приоретет */
   --zHidHs: 2.5ex;/* Размер тени */
   position: relative;
   max-height: 100%;
-  border: 1px solid #0000;/* Уберает дёрганье button. (!!!Не ставить!!! Влияет на дизайн <fieldset zhid>)*/
+  /*border: 1px solid #0000;*//* Уберает дёрганье button. (!!!Не ставить!!! Влияет на дизайн <fieldset zhid>)*/
 }
 
         /* ✦✦✦ button ✦✦✦ *//* #region */
@@ -250,7 +250,7 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -50%) rotate(35deg);
   }
   [zhid]:not([zhid="0"]) [zhidb=""] s::after,
-  .zHid2:not([zhid="0"]) [zhidb="2"] s::after,
+  .zHid2:not([zhid="0"]) [zhidb="2"] ps::after,
   .zHid3:not([zhid="0"]) [zhidb="3"] s::after {
     transform: translate(-50%, -50%) rotate(-35deg);
   }
