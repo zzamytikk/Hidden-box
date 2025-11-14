@@ -250,7 +250,7 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -50%) rotate(35deg);
   }
   [zhid]:not([zhid="0"]) [zhidb=""] s::after,
-  .zHid2:not([zhid="0"]) [zhidb="2"] ps::after,
+  .zHid2:not([zhid="0"]) [zhidb="2"] s::after,
   .zHid3:not([zhid="0"]) [zhidb="3"] s::after {
     transform: translate(-50%, -50%) rotate(-35deg);
   }
