@@ -177,7 +177,7 @@ button[zhidb] {/* button повышаем приоретет */
   bottom: 0;
 }
 
-[zhid]::after {z-index: 2;/* Затемнение */
+[zhid]::after {z-index: 2;/* Затемнение с низу */
   content: '';
   height: 0;/* Для анимации открытия затемнения */
   background: linear-gradient(0, var(--zHidC), #0000);
