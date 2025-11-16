@@ -149,6 +149,7 @@ button[zhidb] {/* button повышаем приоретет */
   --zHidH: var(--zHid, 4ex);/* Размер видимого участка при закрытом состоянии */
   --zHidHs: 2.5ex;/* Размер тени */
   position: relative;
+  max-height: max-content;/* В js проверяем что открыто-закрыто */
   /*border: 1px solid #0000;*//* Уберает дёрганье button. (!!!Не ставить!!! Влияет на дизайн <fieldset zhid>)*/
 }
 
