@@ -87,20 +87,19 @@ button[zhidb] {/* button повышаем приоретет */
 [zhidb] s {
   transform: translate(0, 0);/* Для корекции отображения */
 }
-
-[zhidb] s::before,
-[zhidb] s::after {
+[zhidb] s::after, [zhidb] s::before {/* V */
   content: '';
   position: absolute;
-  top: 0;/* Для transition: .7s */
-  left: -.17em;
-  width: .44em;
-  height: 1px;/* em не использовать! (выдаст разную толщину) */
+  left:0;
   border: 1px solid var(--B-I-C);
-  background: var(--B-I-C);
-  transform: translate(-50%, -50%) rotate(35deg);
-  transition: .7s,/* для красивой смены кнопок .B-Ix-M ☰ => ✘ .B-Ix-X */
-    background .5s, border-color .5s; /* для плавной смены цвета при наведении мышкой */
+  /* Открыто/Закрыто .B-I-uglV: */
+  width: .5em;
+  height: .5em;
+  transform: translate(-50%, -80%) rotate(45deg);
+  background: #0000;
+  border-width: 0 1px 1px 0;/* right body */
+  border-radius: 0 2px 1px 2px;
+  transition: .4s;
 }
     /* ✦✦ ! p,s ✦✦ *//* #endregion */
 /* ✦ button.B-I(x) p,s icon ✦ *//* #endregion */
@@ -161,11 +160,11 @@ button[zhidb] {/* button повышаем приоретет */
 }
 
 [zhidb] s {--B-I-C: #f66}/* Ʌ Закрыть */
-[zhidb] s::before {
-  transform: translate(-50%, -50%) rotate(-35deg);
-}
 [zhidb] s::after {
-  left: .17em;
+  transform: translate(-50%, -20%) rotate(-135deg);/* крутим через право */
+}
+[zhidb] s::before {
+  transform: translate(-50%, -20%) rotate(225deg);/* крутим через лево */
 }
         /* ✦✦✦ button ✦✦✦ *//* #endregion */
     /* ✦✦ ! ✦✦ *//* #endregion */
@@ -202,7 +201,7 @@ button[zhidb] {/* button повышаем приоретет */
   opacity: .4;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
-@media (min-width: 769px) {/* 769 больше или равно */
+@media (min-width: 769px) {/* 769 больше или равно. Откроем */
   /* Это @media уберает двойное закрытие */
   [zhid="1"] {
     overflow: hidden;
@@ -219,15 +218,10 @@ button[zhidb] {/* button повышаем приоретет */
   .zHid2[zhid="1"] [zhidb="2"] s,
   .zHid3[zhid="1"] [zhidb="3"] s {--B-I-C: #0b0}
   
-  [zhid="1"] [zhidb=""] s::before,
-  .zHid2[zhid="1"] [zhidb="2"] s::before,
-  .zHid3[zhid="1"] [zhidb="3"] s::before {/* V Открыть */
-    transform: translate(-50%, -50%) rotate(35deg);
-  }
-  [zhid="1"] [zhidb=""] s::after,
-  .zHid2[zhid="1"] [zhidb="2"] s::after,
-  .zHid3[zhid="1"] [zhidb="3"] s::after {
-    transform: translate(-50%, -50%) rotate(-35deg);
+  [zhid="1"] [zhidb=""] s::before, [zhid="1"] [zhidb=""] s::after,
+  .zHid2[zhid="1"] [zhidb="2"] s::before, .zHid2[zhid="1"] [zhidb="2"] s::after,
+  .zHid3[zhid="1"] [zhidb="3"] s::before, .zHid3[zhid="1"] [zhidb="3"] s::after {/* V Открыть */
+    transform: translate(-50%, -80%) rotate(45deg);
   }
 }
 /* Авто закрытие всего когда экран меньше 768px */
@@ -247,15 +241,10 @@ button[zhidb] {/* button повышаем приоретет */
   .zHid2:not([zhid="0"]) [zhidb="2"] s,
   .zHid3:not([zhid="0"]) [zhidb="3"] s {--B-I-C: #0b0}
   
-  [zhid]:not([zhid="0"]) [zhidb=""] s::before,
-  .zHid2:not([zhid="0"]) [zhidb="2"] s::before,
-  .zHid3:not([zhid="0"]) [zhidb="3"] s::before {/* V Открыть */
-    transform: translate(-50%, -50%) rotate(35deg);
-  }
-  [zhid]:not([zhid="0"]) [zhidb=""] s::after,
-  .zHid2:not([zhid="0"]) [zhidb="2"] s::after,
-  .zHid3:not([zhid="0"]) [zhidb="3"] s::after {
-    transform: translate(-50%, -50%) rotate(-35deg);
+  [zhid]:not([zhid="0"]) [zhidb=""] s::before, [zhid]:not([zhid="0"]) [zhidb=""] s::after,
+  .zHid2:not([zhid="0"]) [zhidb="2"] s::before, .zHid2:not([zhid="0"]) [zhidb="2"] s::after,
+  .zHid3:not([zhid="0"]) [zhidb="3"] s::before, .zHid3:not([zhid="0"]) [zhidb="3"] s::after {/* V Открыть */
+    transform: translate(-50%, -80%) rotate(45deg);
   }
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
