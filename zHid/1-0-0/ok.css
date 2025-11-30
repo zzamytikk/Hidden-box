@@ -201,7 +201,7 @@ button[zhidb] {/* button повышаем приоретет */
   opacity: .4;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
-@media (min-width: 769px) {/* 769 больше или равно. Откроем */
+@media (min-width: 769px) {/* 769 больше или равно. */
   /* Это @media уберает двойное закрытие */
   [zhid="1"] {
     overflow: hidden;
@@ -216,7 +216,7 @@ button[zhidb] {/* button повышаем приоретет */
   /* button */
   [zhid="1"] [zhidb] s,
   .zHid2[zhid="1"] [zhidb="2"] s,
-  .zHid3[zhid="1"] [zhidb="3"] s {--B-I-C: #0b0}
+  .zHid3[zhid="1"] [zhidb="3"] s {--B-I-C: #0b0;}
   
   [zhid="1"] [zhidb=""] s::before, [zhid="1"] [zhidb=""] s::after,
   .zHid2[zhid="1"] [zhidb="2"] s::before, .zHid2[zhid="1"] [zhidb="2"] s::after,
