@@ -99,6 +99,7 @@ button[zhidb] {/* button повышаем приоретет */
   background: #0000;
   border-width: 0 1px 1px 0;/* right body */
   border-radius: 0 2px 1px 2px;
+  box-shadow: 1px 1px 2px -1px var(--B-I-C);
   transition: .4s;
 }
     /* ✦✦ ! p,s ✦✦ *//* #endregion */
