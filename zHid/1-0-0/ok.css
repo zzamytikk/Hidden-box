@@ -113,7 +113,8 @@ button[zhidb] {/* button повышаем приоретет */
   background: #0000;
   border-width: 0 1px 1px 0;/* right body */
   border-radius: 0 2px 1px 2px;
-  box-shadow: 1px 1px 2px -1px var(--B-I-C);
+  box-shadow: 1px 1px 3px -1px var(--B-I-C);
+  clip: rect(0px, 100px, 100px, 0px);/* Скроем свечение с другой стороны */
   transition: .4s;
 }
     /* ✦✦ ! p,s ✦✦ *//* #endregion */
@@ -147,9 +148,10 @@ button[zhidb] {/* button повышаем приоретет */
   --zHidHs: 2.5ex;/* Размер тени */
   position: relative;
   max-height: max-content;/* В js проверяем что открыто-закрыто */
-}
-[zhid]:not(fieldset, [style*="border"]) {
-  border: 1px solid #0000;/* Уберает дёрганье при открытии/закрытии */
+  /* Убераем дёрганье button. может поивится прокрутка */
+  /*overflow: auto;*//* Плохо !!! */
+  /*border: 1px solid; *//* Плохо !!! */
+  display: flow-root;/* !!! Стадия теста */
 }
 
         /* ✦✦✦ button ✦✦✦ *//* #region */
@@ -165,6 +167,17 @@ button[zhidb] {/* button повышаем приоретет */
   transform: translate(-50%, -20%) rotate(225deg);/* крутим через лево */
 }
         /* ✦✦✦ button ✦✦✦ *//* #endregion */
+
+        /* ✦✦✦ button/span для текста ✦✦✦ *//* #region */
+[zhid].zHidTxt [zhidb] {
+  position: absolute;
+  bottom:0;
+  right: 1px;
+}
+[zhid].zHidTxt span {
+  margin-right: 1.5em;/* Отступ для button */
+}
+        /* ✦✦✦ button/span для текста ✦✦✦ *//* #endregion */
     /* ✦✦ ! ✦✦ *//* #endregion */
 
     /* ✦✦ Закрыто ✦✦ *//* #region */
@@ -199,8 +212,9 @@ button[zhidb] {/* button повышаем приоретет */
   opacity: .4;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
+/* @media уберает двойное закрытие */
 @media (min-width: 769px) {/* 769 больше или равно. */
-  /* Это @media уберает двойное закрытие */
+  /* Закрываем: */
   [zhid="1"] {
     overflow: hidden;
     max-height: var(--zHidH);
@@ -221,8 +235,12 @@ button[zhidb] {/* button повышаем приоретет */
   .zHid3[zhid="1"] [zhidb="3"] s::before, .zHid3[zhid="1"] [zhidb="3"] s::after {/* V Открыть */
     transform: translate(-50%, -80%) rotate(45deg);
   }
+  
+  [zhid="1"].zHidTxt span {/* Отступ контенера с права для текста под кнопку */
+    display: block;
+  }
 }
-/* Авто закрытие всего когда экран меньше 768px */
+/* Авто закрытие всего когда экран меньше 768px и [zhid]:not([zhid="0"]) */
 @media (max-width: 768px) {/* меньше или ровно 768 */
   [zhid]:not([zhid="0"]) {
     overflow: hidden;
@@ -243,6 +261,10 @@ button[zhidb] {/* button повышаем приоретет */
   .zHid2:not([zhid="0"]) [zhidb="2"] s::before, .zHid2:not([zhid="0"]) [zhidb="2"] s::after,
   .zHid3:not([zhid="0"]) [zhidb="3"] s::before, .zHid3:not([zhid="0"]) [zhidb="3"] s::after {/* V Открыть */
     transform: translate(-50%, -80%) rotate(45deg);
+  }
+  
+  [zhid].zHidTxt:not([zhid="0"]) span {/* Отступ контенера с права для текста под кнопку */
+    display: block;
   }
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
