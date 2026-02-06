@@ -91,6 +91,7 @@ button[zhidb] {/* button повышаем приоретет */
   position: absolute;
   left: calc(var(--B-I-O) / 2);/* Центруем */
   width: 1em;
+  min-width: 1em;/* Помагает не сжаться, когда текст в b невмещяется */
   height: 1em;
 }
     /* ✦✦ ! ✦✦ *//* #endregion */
@@ -148,12 +149,12 @@ button[zhidb] {/* button повышаем приоретет */
   --zHidHs: 2.5ex;/* Размер тени */
   position: relative;
   max-height: max-content;/* В js проверяем что открыто-закрыто */
-  /* Убераем дёрганье button. может поивится прокрутка */
-  /*overflow: auto;*//* Плохо !!! */
+  /* Убераем дёрганье button. */
+  /*overflow: auto;*//* Плохо !!! (может поивится прокрутка) */
+  
   /*border: 1px solid; *//* Плохо !!! */
   display: flow-root;/* !!! Стадия теста */
 }
-
         /* ✦✦✦ button ✦✦✦ *//* #region */
 [zhidb] {z-index: 3!important;
   float: right;
@@ -183,7 +184,7 @@ button[zhidb] {/* button повышаем приоретет */
     /* ✦✦ Закрыто ✦✦ *//* #region */
         /* ✦✦✦ ! ✦✦✦ *//* #region */
 [zhid]::after, [zhid]::before {
-  position: absolute !important;
+  position: absolute!important;
   left: 0;
   right: 0;
   bottom: 0;
@@ -205,8 +206,8 @@ button[zhidb] {/* button повышаем приоретет */
   top: 0;
 }
 /* Уберём возможное нажатие на <button>✓ когда закрыто, для внутрених .zHid2, .zHid3 */
-[zhid]:not([zhid="0"], .zHid2, .zHid3) :is([zhidb="2"], [zhidb="3"]),/* Уровень 1 уберём в Уровень2 и Уровень3 */
-.zHid2:not([zhid="0"]) :is([zhidb="3"]) {/* Уровень2 уберём в Уровень3 */
+[zhid]:not([zhid="0"], .zHid2, .zHid3) :is([zhidb="2"], [zhidb="3"]),/* Уровень 1, и уберём в Уровень2 и Уровень3 */
+.zHid2:not([zhid="0"]) :is([zhidb="3"]) {/* Уровень2, и уберём в Уровне3 */
   z-index: 2;
   pointer-events: none;
   opacity: .4;
