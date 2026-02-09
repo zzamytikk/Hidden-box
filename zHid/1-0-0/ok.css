@@ -214,7 +214,7 @@ button[zhidb] {/* button повышаем приоретет */
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
 /* @media уберает двойное закрытие */
-@media (min-width: 769px) {/* 769 больше или равно. */
+@media (min-width: 700px) {/* 700 ровно или больше. */
   /* Закрываем: */
   [zhid="1"] {
     overflow: hidden;
@@ -245,8 +245,8 @@ button[zhidb] {/* button повышаем приоретет */
     display: block;
   }
 }
-/* Авто закрытие всего когда экран меньше 768px и [zhid]:not([zhid="0"]) */
-@media (max-width: 768px) {/* меньше или ровно 768 */
+/* Авто закрытие всего когда экран меньше или ровно 699px и [zhid]:not([zhid="0"]) */
+@media (max-width: 699px) {/* меньше или ровно 699 */
   [zhid]:not([zhid="0"]) {
     overflow: hidden;
     max-height: var(--zHidH);

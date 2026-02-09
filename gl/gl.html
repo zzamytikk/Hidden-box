@@ -32,15 +32,17 @@
     <link href="/db/publ/zHid/1-0-0/m.css" rel="stylesheet">
     <script src="/db/publ/zHid/1-0-0/m.js" defer></script>
     
-    <div class="ram-V0 ram-V2 gI-inf all-c1"><div>
-      <b>Скрыть/Показать</b> позволяет частично скрыть некоторые элементы интерфейса. 
-      Она может быть полезна в различных ситуациях, например, когда вы хотите частично скрыть большой текст.
-    </div></div>
+    <div class="zHidTxt" style="--zHid:9ex;" zhid>
+      <div class="ram-V0 ram-V2 gI-inf all-c1"><div><button zhidb><p><s></s></p></button>
+        <span><b>Скрыть/Показать</b> позволяет частично скрыть некоторые элементы интерфейса. 
+      Она может быть полезна в различных ситуациях, например, когда вы хотите частично скрыть большой текст.</span>
+      </div></div>
+    </div>
     
     <!-- Примеры: -->
     <div class="ram-V0 ram-V2 gI-inf all-c7"><div>
       <ul class="ram-V0 all-c8">
-        <li><b>zhid=""</b> Когда экран меньше 769px автоматически скроет большую часть содержания элемента.</li>
+        <li><b>zhid=""</b> Когда экран меньше или ровно 699px автоматически скроет большую часть содержания элемента.</li>
         <li><b>zhid="1"</b> Закрыто.</li>
         <li><b>zhid="0"</b> Открыто.</li>
       </ul> 
@@ -55,8 +57,8 @@
       <div class="prezHid">
         <div style="--zHidH: 10ex;" zhid><button zhidb><p><s></s></p></button>
           <b>zhid=""</b> При первой загрузке HTML страницы:
-            <br>&nbsp;&nbsp;• Экран больше 768px: <i style="color:green">Открыто</i>
-            <br>&nbsp;&nbsp;• Экран меньше 769px: <i style="color:red">Закрыто</i>
+            <br>&nbsp;&nbsp;• Экран больше или ровно 700px: <i style="color:green">Открыто</i>
+            <br>&nbsp;&nbsp;• Экран меньше или ровно 699px: <i style="color:red">Закрыто</i>
             
             <pre id="zCod" class="ram-n0 all-c5" data-ram-zag="HTML пример"><div><div></div><code class="v-BG0">
             &lt;div style="margin: 7px 0; padding: 5px; border: 1px solid green">&lt;!-- style вид рамки -->
@@ -72,8 +74,8 @@
       <div class="prezHid">
         <div style="--zHidH: 10ex;" zhid="1"><button zhidb><p><s></s></p></button>
           <b>zhid="1"</b> При первой загрузке HTML страницы:
-            <br>&nbsp;&nbsp;• Экран больше 768px: <i style="color:red">Закрыто</i>
-            <br>&nbsp;&nbsp;• Экран меньше 769px: <i style="color:red">Закрыто</i>
+            <br>&nbsp;&nbsp;• Экран больше или ровно 700px: <i style="color:red">Закрыто</i>
+            <br>&nbsp;&nbsp;• Экран меньше или ровно 699px: <i style="color:red">Закрыто</i>
              
             <pre id="zCod" class="ram-n0 all-c5" data-ram-zag="HTML пример"><div><div></div><code class="v-BG0">
             &lt;div style="margin: 7px 0; padding: 5px; border: 1px solid green">&lt;!-- style вид рамки -->
@@ -89,8 +91,8 @@
       <div class="prezHid">
         <div zhid="0"><button zhidb><p><s></s></p></button>
           <b>zhid="0"</b> При первой загрузке HTML страницы:
-            <br>&nbsp;&nbsp;• Экран больше 768px: <i style="color:green">Открыто</i>
-            <br>&nbsp;&nbsp;• Экран меньше 769px: <i style="color:green">Открыто</i>
+            <br>&nbsp;&nbsp;• Экран больше или ровно 700px: <i style="color:green">Открыто</i>
+            <br>&nbsp;&nbsp;• Экран меньше или ровно 699px: <i style="color:green">Открыто</i>
             
             <pre id="zCod" class="ram-n0 all-c5" data-ram-zag="HTML пример"><div><div></div><code class="v-BG0">
             &lt;div style="margin: 7px 0; padding: 5px; border: 1px solid green">&lt;!-- style вид рамки -->
