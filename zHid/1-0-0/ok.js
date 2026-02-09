@@ -5,19 +5,20 @@
 var zHid = { //Спрятать/Показать hid
   //zHid.$();//★ Спрятать/Показать hid (Запускаем)
   $: () => { //Вешаем click
-    $('[zhid]').find('[zhidb]:eq(0)').each((i, e) => {
+    $('[zhid].zHidTxt, [zhid]:not(.zHidTxt) [zhidb]').each((i, e) => {
       if (zHid.proNS( //Проверка namespace
           e, //event
           'zHid' //Какой ключь(namespace) ищим
           //undefined = click
         ) //return true = Ненашли ключ, false = нашли!
       ) {
-        $(e).on('click.zHid', e => {
-          //console.debug('click');
-          zHid.X($(e.currentTarget).closest('[zhid]'))
+        $(e).on('click.zHid', e => {//console.debug('click');
+          zHid.X($(e).hasClass('zHidTxt')
+            ? $(e)//span текс
+            : $(e.currentTarget).closest('[zhid]'))//button
         });
       } else {
-        //console.debug('Была попытка повторного запуска скрипта zHid.$(click.zHid);', e);
+        //console.debug(i,'Была попытка повторного запуска скрипта zHid.$(click.zHid);', [e]);
       }
     });
   },
