@@ -237,6 +237,10 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -80%) rotate(45deg);
   }
   
+  [zhid].zHidTxt:not([zhid="0"]) [zhidb] {
+    top: 0;
+    bottom: unset;
+  }
   [zhid="1"].zHidTxt span {/* Отступ контенера с права для текста под кнопку */
     display: block;
   }
@@ -264,6 +268,10 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -80%) rotate(45deg);
   }
   
+  [zhid].zHidTxt:not([zhid="0"]) [zhidb] {
+    top: 0;
+    bottom: unset;
+  }
   [zhid].zHidTxt:not([zhid="0"]) span {/* Отступ контенера с права для текста под кнопку */
     display: block;
   }
