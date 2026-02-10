@@ -1,1 +1,1 @@
-var zHid2={$:()=>{$('[zhid]').each((i,e)=>{i=e.className.indexOf('zHidTxt')>-1?$(e):$(e).find('[zhidb]:eq(0)');if(!$(e).attr('onzhid')){$(e).attr('onzhid',1);i.on('click',()=>{zHid.X($(e))})}})},X:Z=>{Z.attr('zhid',+(Z.attr('zhid')!=1&&Z.css('max-height')=='max-content'))}}
+var zHid={$:()=>{$('[zhid]').each((i,e)=>{i=e.className.indexOf('zHidTxt')>-1?$(e):$(e).find('[zhidb]:eq(0)');if(!$(e).attr('onzhid')){$(e).attr('onzhid',1);i.on('click',()=>{zHid.X($(e))})}})},X:Z=>{Z.attr('zhid',+(Z.attr('zhid')!=1&&Z.css('max-height')=='max-content'))}}
