@@ -12,13 +12,10 @@ var zHid = { //Спрятать/Показать hid
         ? $(e)
         : $(e).find('[zhidb]:eq(0)');
       
-      if (zHid.proNS( //Проверка namespace
-          i,//event
-          'zHid' //Какой ключь(namespace) ищим
-          //undefined = click
-        ) //return true = Ненашли ключ, false = нашли!
-      ) {
-        i.on('click.zHid', () => {console.debug('click');
+      if (!$(e).attr('onzhid')) {
+        $(e).attr('onzhid', 1);//Повесили click
+        
+        i.on('click', () => {
           zHid.X($(e));
         });
       } //else {
@@ -36,28 +33,5 @@ var zHid = { //Спрятать/Показать hid
     Z.attr('zhid',
       +(Z.attr('zhid') != 1 && Z.css('max-height')=='max-content') //true: Закрываем, false: Открываем
     );
-  },
-  /* proNS(//Проверка namespace
-      e,//event
-      'cod',//Какой ключь(namespace) ищим
-      'input'//$.on('input.cod'); undefined = click
-    );//return true = Ненашли ключ, false = нашли!
-  */
-  proNS: (e, P, c = 'click') => { //Ищим .cod, установленный: `$.on('click.cod', () => {})`
-    let d = $._data($(e)[0], 'events')?.[c];
-    
-    //console.debug('Нашли запись: if(' + (d && d[0].namespace) + ').', d);
-    
-    if (d && d[0].namespace) { //Нашли запись
-      return !d.filter(v => { //Проверим все
-        //console.debug('if(' + v['namespace'] + '==' + P + ') =>', v['namespace'] == P);
-        
-        if (v['namespace'] == P) { //Нашли запись
-          return true //Выбераем совпадение
-        }
-      })[0]; //[0] Проверка первого совпадения
-    }
-    
-    return true; //Пусто
   }
 };
