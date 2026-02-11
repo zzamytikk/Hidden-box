@@ -218,6 +218,7 @@ button[zhidb] {/* button повышаем приоретет */
 @media (min-width: 700px) {/* 700 ровно или больше. */
   /* Закрываем: */
   [zhid="1"] {
+    --zHidX: var(--zHidx, 0);/* style="zHidx: 5px" Сработает: когда box закрыт */
     overflow: hidden;
     max-height: var(--zHidH);
   }
@@ -249,6 +250,7 @@ button[zhidb] {/* button повышаем приоретет */
 /* Авто закрытие всего когда экран меньше или ровно 699px и [zhid]:not([zhid="0"]) */
 @media (max-width: 699px) {/* меньше или ровно 699 */
   [zhid]:not([zhid="0"]) {
+    --zHidX: var(--zHidx, 0);/* style="zHidx: 5px" Сработает: когда box закрыт */
     overflow: hidden;
     max-height: var(--zHidH);
   }

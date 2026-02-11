@@ -208,14 +208,15 @@
     </fieldset>
     
     <!-- Скрыть/Показать внутри Скрыть/Показать (Доступно 3 уровня) -->
-    <div class="ram-V0 ram-V2 gI-inf all-c7"><div>
-      <ul class="ram-V0 all-c8">
-        <li><b>class="zHid2"</b> 2 уровень Скрыть/Показать (Размещается внутри первого Скрыть/Показать).</li>
-        <li><b>class="zHid3"</b> 3 уровень Скрыть/Показать (Размещается внутри второго Скрыть/Показать).</li>
-      </ul> 
-    </div></div>
     <fieldset class="all-c1">
       <legend>Скрыть/Показать внутри Скрыть/Показать (Доступно 3 уровня)</legend>
+      
+      <div class="ram-V0 ram-V2 gI-inf all-c7"><div>
+        <ul class="ram-V0 all-c8">
+          <li><b>class="zHid2"</b> 2 уровень Скрыть/Показать (Размещается внутри первого Скрыть/Показать).</li>
+          <li><b>class="zHid3"</b> 3 уровень Скрыть/Показать (Размещается внутри второго Скрыть/Показать).</li>
+        </ul> 
+      </div></div>
       
       <div style="--zHidH:9ex; border: 1px solid red;" zhid="0"><button zhidb><p><s></s></p></button>
         <div style="color:red; margin-bottom:9px;">Уровень 1:</div>
@@ -305,15 +306,23 @@
     </fieldset>
     
     <!-- Возможные изменения: -->
-    <div class="ram-V0 ram-V2 gI-inf all-c7"><div>
-      <ul class="ram-V0 all-c8">
-        <li><b>style="--zHid: 2ex;"</b> размер видемой области.</li>
-        <li><b>style="--zHidHs: 2.5ex;"</b> размер затемнения снизу.</li>
-        <li><b>style="--zHidC: red;"</b> Цвет затемнения снизу.</li>
-      </ul> 
-    </div></div> 
     <fieldset class="all-c2">
       <legend>Возможные изменения</legend>
+      <div class="ram-V0 ram-V2 gI-inf all-c7"><div>
+        <ul class="ram-V0 all-c8">
+          <li><b>style="--zHid: 2ex;"</b> размер видемой области.</li>
+          <li><b>style="--zHidHs: 2.5ex;"</b> размер затемнения снизу.</li>
+          <li><b>style="--zHidC: red;"</b> Цвет затемнения снизу.</li>
+          <li><b>style="--zHidx: green;"</b> Задаём свой параметр когда окно закрыто, 
+            для дальнейшего использования: <u class="u-n0 all-c1">style="color: var(--zHidX, pink);"</u>. 
+            Когда окно закрыто сработает green цвет.
+            <ul>
+              <li>По умолчанию --zHidx: 0;</li>
+            </ul>
+          </li>
+        </ul> 
+      </div></div>
+      
       <h4 class="hr-n1 hr-L" style="--hr-Ct: var(--Ct)"><b>Размер видемой области:</b></h4>
       <div class="prezHid">
           <div style="--zHid:2ex" zhid="1"><button zhidb><p><s></s></p></button>
@@ -382,6 +391,19 @@
         &lt;div style="--zHidC: #0000;" zhid>&lt;!-- zhid Определяет состояние открыто или закрыто при первой загрузке HTML страницы -->
         &nbsp; &lt;button zhidb>&lt;p>&lt;s>&lt;/s>&lt;/p>&lt;/button>&lt;!-- button кнопка Открыть/Закрыть -->
         &nbsp; Текст текст ...
+        &lt;/div>
+        </code></div></pre>
+      </div>
+      
+      <h4 class="hr-n1 hr-L" style="--hr-Ct: var(--Ct)"><b>Окно закрыто(Свой параметр):</b></h4>
+      <div class="prezHid" style="--zHidx: green;" zhid><button zhidb><p><s></s></p></button>
+        Изменим цвет подчёркнутого текста: <u style="color: var(--zHidX, pink);">тут</u> когда закрыто изменим на green.
+        
+        <pre id="zCod" class="ram-n0 all-c5" data-ram-zag="HTML пример"><div><div></div><code class="v-BG0">
+        <!-- --zHidx: green; - Когда окно закрыто задаём свой параметр -->
+        &lt;div style="--zHidx: green;" zhid>&lt;!-- zhid Определяет состояние открыто или закрыто при первой загрузке HTML страницы -->
+        &nbsp; &lt;button zhidb>&lt;p>&lt;s>&lt;/s>&lt;/p>&lt;/button>&lt;!-- button кнопка Открыть/Закрыть -->
+        &nbsp; Изменим цвет подчёркнутого текста: &lt;u style="color: var(--zHidX, pink);">тут&lt;/u> когда закрыто изменим на green.
         &lt;/div>
         </code></div></pre>
       </div>
