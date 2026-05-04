@@ -122,7 +122,7 @@ button[zhidb] {/* button повышаем приоретет */
 /* ✦ button.B-I(x) p,s icon ✦ *//* #endregion */
 
 /* ✦ Открыть/Закрыть [zhid] .zHid ✦ *//* #region */
-/* • (zhid="{цифра}" || style="--zHidX:{цыфра};")
+/* • zhid="{цифра}"
       <div zhid="1" - Всегда открыто
       <div zhid="0" - Всегда закрыто
       <div zhid=""  - Экран больше 768px: Открыто
@@ -219,6 +219,8 @@ button[zhidb] {/* button повышаем приоретет */
   /* Закрываем: */
   [zhid="1"] {
     --zHidX: var(--zHidx, 0);/* style="zHidx: 5px" Сработает: когда box закрыт */
+    --zHidX2: var(--zHidx2, 0);
+    --zHidX3: var(--zHidx3, 0);
     overflow: hidden;
     max-height: var(--zHidH);
   }
@@ -251,6 +253,8 @@ button[zhidb] {/* button повышаем приоретет */
 @media (max-width: 699px) {/* меньше или ровно 699 */
   [zhid]:not([zhid="0"]) {
     --zHidX: var(--zHidx, 0);/* style="zHidx: 5px" Сработает: когда box закрыт */
+    --zHidX2: var(--zHidx2, 0);
+    --zHidX3: var(--zHidx3, 0);
     overflow: hidden;
     max-height: var(--zHidH);
   }
