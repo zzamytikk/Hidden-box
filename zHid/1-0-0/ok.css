@@ -149,9 +149,9 @@ button[zhidb] {/* button повышаем приоретет */
   --zHidHs: 2.5ex;/* Размер тени */
   position: relative;
   max-height: max-content;/* В js проверяем что открыто-закрыто */
-  /* Убераем дёрганье button. */
-  /*overflow: auto;*//* Плохо !!! (может поивится прокрутка) */
   
+  /* Убераем дёрганье button: */
+  /*overflow: auto;*//* Плохо !!! (может поивится прокрутка) */
   /*border: 1px solid; *//* Плохо !!! */
   display: flow-root;/* !!! Стадия теста */
 }
@@ -170,11 +170,10 @@ button[zhidb] {/* button повышаем приоретет */
         /* ✦✦✦ button ✦✦✦ *//* #endregion */
 
         /* ✦✦✦ button/span для текста ✦✦✦ *//* #region */
-[zhid].zHidTxt [zhidb] {
+[zhid].zHidTxt button[zhidb] {/* button в низ(Когда открыто) */
   position: absolute;
   bottom:0;
   right: 1px;
-  pointer-events: none;
 }
 [zhid].zHidTxt span {
   margin-right: 1.5em;/* Отступ для button */
@@ -209,18 +208,20 @@ button[zhidb] {/* button повышаем приоретет */
 /* Уберём возможное нажатие на <button>✓ когда закрыто, для внутрених .zHid2, .zHid3 */
 [zhid]:not([zhid="0"], .zHid2, .zHid3) :is([zhidb="2"], [zhidb="3"]),/* Уровень 1, и уберём в Уровень2 и Уровень3 */
 .zHid2:not([zhid="0"]) :is([zhidb="3"]) {/* Уровень2, и уберём в Уровне3 */
-  z-index: 2;
+  z-index: 2!important;
   pointer-events: none;
   opacity: .4;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
-/* @media уберает двойное закрытие */
+
+/* @media уберает двойное закрытие(Отображение в css 2 раза): */
 @media (min-width: 700px) {/* 700 ровно или больше. */
   /* Закрываем: */
   [zhid="1"] {
     --zHidX: var(--zHidx, 0);/* style="zHidx: 5px" Сработает: когда box закрыт */
-    --zHidX2: var(--zHidx2, 0);
-    --zHidX3: var(--zHidx3, 0);
+    --zHidX2: var(--zHidx2, none);
+    --zHidX3: var(--zHidx3, unset);
+    --zHidX4: var(--zHidx4, block);
     overflow: hidden;
     max-height: var(--zHidH);
   }
@@ -231,6 +232,10 @@ button[zhidb] {/* button повышаем приоретет */
     content: '';
   }
   /* button */
+  [zhid="1"]:not(.zHid2, .zHid3) [zhidb] {
+    pointer-events: none;
+  }
+  
   [zhid="1"] [zhidb] s,
   .zHid2[zhid="1"] [zhidb="2"] s,
   .zHid3[zhid="1"] [zhidb="3"] s {--B-I-C: #0b0;}
@@ -241,7 +246,7 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -80%) rotate(45deg);
   }
   
-  [zhid].zHidTxt:not([zhid="0"]) [zhidb] {
+  [zhid="1"].zHidTxt [zhidb] {
     top: 0;
     bottom: unset;
   }
@@ -253,8 +258,9 @@ button[zhidb] {/* button повышаем приоретет */
 @media (max-width: 699px) {/* меньше или ровно 699 */
   [zhid]:not([zhid="0"]) {
     --zHidX: var(--zHidx, 0);/* style="zHidx: 5px" Сработает: когда box закрыт */
-    --zHidX2: var(--zHidx2, 0);
-    --zHidX3: var(--zHidx3, 0);
+    --zHidX2: var(--zHidx2, none);
+    --zHidX3: var(--zHidx3, unset);
+    --zHidX4: var(--zHidx4, block);
     overflow: hidden;
     max-height: var(--zHidH);
   }
@@ -265,6 +271,10 @@ button[zhidb] {/* button повышаем приоретет */
     content: '';
   }
   /* button */
+  [zhid]:not([zhid="0"], .zHid2, .zHid3) [zhidb] {
+    pointer-events: none;
+  }
+  
   [zhid]:not([zhid="0"]) [zhidb=""] s,
   .zHid2:not([zhid="0"]) [zhidb="2"] s,
   .zHid3:not([zhid="0"]) [zhidb="3"] s {--B-I-C: #0b0}
@@ -275,7 +285,7 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -80%) rotate(45deg);
   }
   
-  [zhid].zHidTxt:not([zhid="0"]) [zhidb] {
+  [zhid].zHidTxt:not([zhid="0"]) [zhidb] {/* Кнопку на верх */
     top: 0;
     bottom: unset;
   }
@@ -284,4 +294,70 @@ button[zhidb] {/* button повышаем приоретет */
   }
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
+    
+    /* ✦✦ В одну строчку с затемнением ✦✦ *//* #region */
+.zHidTx1 {/* button Открыть/Закрыть */
+  --zHidx: nowrap; /* white-space: (nowrap || unset) Запрещаем перенос строк */
+  --zHidx2: '';    /* ('' || unset) Показать/Скрыть Затемнение */
+  --zHidx3: hidden;/* overflow: (hidden || unset) Обрезаем видимость */
+
+  --zHidC: #0000;  /* Затемнение с низу.(Уберём) */
+  --zHidH: 2.5ex;  /* Размер закрытия. на 1 строчку */
+}
+[zhidtx-t] {/* <u> Затемняем обрезанный текст, в 1 строчку */
+  display: var(--zHidX4, unset);   /* display: (block || unset) */
+  position: relative;
+  white-space: var(--zHidX, unset);/* (nowrap || unset) Запрещаем перенос строк, когда zHid закрыт! */
+  overflow: var(--zHidX3, unset);  /* (hidden || unset) Обрезаем видимость */
+}
+[zhidtx-t]::before, [zhidtx-s]::before {/* <u>, <s> */
+  content: var(--zHidX2, unset);/* ('' || unset) Показать/Скрыть Затемнение */
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 2em;
+  height: 100%;
+  background: linear-gradient(270deg, var(--ram-br), #0000);
+}
+/* Пример:
+          <div class="ram-V0 ram-V2 gI-poi all-c7"><div>
+            <div class="zHid3 zHidTx1" zhid="1"><button zhidb="3"><p><s></s></p></button>
+            <u zhidtx-t><b>Список1</b> Пример длинного заголовка.. Прям не влазит:</u>
+            <ul class="ram-V0 all-c8">
+              <ol>Тут примечание.</ol>
+              <li><b>&lt;u zhidtx-t="">текст.. &lt;/u></b> полный пример.</li>
+              <br>
+              <li>Без &lt;s>:
+                <ul>
+                  <li><b>&lt;u></b> для текста.</li>
+                </ul>
+              </li>
+            </ul></div>
+            
+            <div class="zHid3 zHidTx1" style="--zHidH:2.5ex; --zHidC:#0000" zhid="1"><button zhidb="3"><p><s></s></p></button>
+            <u zhidtx-t><b>Список2</b> Пример длинного заголовка.. Прям не влазит:<s zhidtx-s></s></u>
+            <ul class="ram-V0 all-c8">
+              <li><b>&lt;u zhidtx-t="">текст..&lt;s zhidtx-s="">&lt;/s>&lt;/u></b> полный пример.
+                <ul>
+                  <li><b>&lt;u></b> для текста.</li>
+                  <li><b>&lt;s></b> затемняет текст(При закрытии)</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+            
+            <div class="zHid3 zHidTx1" style="--zHidH:2.5ex; --zHidC:#0000" zhid="1"><button zhidb="3"><p><s></s></p></button>
+            <u zhidtx-t><b>Список3</b> Коротко:<s zhidtx-s></s></u>
+            <ul class="ram-V0 all-c8">
+              <li><b>&lt;u zhidtx-t="">текст..&lt;s zhidtx-s="">&lt;/s>&lt;/u></b> полный пример.
+                <ul>
+                  <li><b>&lt;u></b> для текста.</li>
+                  <li><b>&lt;s></b> затемняет текст(При закрытии)</li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+          </div></div>
+*/
+    /* ✦✦ В одну строчку с затемнением ✦✦ *//* #endregion */
 /* ✦ Открыть/Закрыть [zhid] ✦ *//* #endregion */
