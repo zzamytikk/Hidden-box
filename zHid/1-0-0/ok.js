@@ -22,11 +22,11 @@ var zHid = { //Спрятать/Показать hid
             //                Открыто && Открыто
             x = +(B.attr('zhid') != 1 && B.css('max-height') == 'max-content');//true: Открыто || false: Закрыто
           
-          /* console.info('• СТАРТ ---------', (B.attr('zhid') != 1 && B.css('max-height')=='max-content'? 'Закрываем':'Открываем')+', x:', x+', Висит на: .on(' +(i?'button':'div')+')');
+          /*console.info('• СТАРТ ---------', (B.attr('zhid') != 1 && B.css('max-height')=='max-content'? 'Закрываем':'Открываем')+', x:', x+', Висит на: .on(' +(i?'button':'div')+')');
           console.debug('[zhid]class:', B[0].className || 'пусто'
             , '\n\tПлиск .zHid2 или .zHid3:', i
             , '\n\tНажали(click):', G.target.tagName
-            , x && 'PS'.indexOf(G.target.tagName) > -1? '\n\tНажали: <p||s>: ' + ('PS'.indexOf(G.target.tagName) > -1) :''
+            , x && 'PSB'.indexOf(G.target.tagName) > -1? '\n\tНажали: <p,s,b>: ' + ('PSB'.indexOf(G.target.tagName) > -1) :''
             , x && !i? '\n\tИщим button[zhidb=""]: '+ !!($(G.target).is('[zhidb=""]') || $(G.target).closest('[zhidb=""]')[0]) :''
           );*/
           
@@ -35,7 +35,7 @@ var zHid = { //Спрятать/Показать hid
               //Висит на .on(div):
               || $(G.target).is('[zhidb=""]')//Нажали на button(не .zHid2, .zHid3) Закрываем!
               || (
-                'PS'.indexOf(G.target.tagName) > -1//нажали: <p||s> не на button
+                'PSB'.indexOf(G.target.tagName) > -1//нажали: <p,s,b> не на button
                 && $(G.target).closest('[zhidb=""]')[0]//Ищим button[zhidb=''](без .zHid2, .zHid3)
               )? 1
               : ''//Ошибка! не нашли button[zhidb=""]
@@ -73,7 +73,7 @@ var zHid = { //Спрятать/Показать hid
         });
       } //else {
         //console.debug('Была попытка повторного запуска скрипта zHid.$(click.zHid);', [e]);
-      //}
+      //} 
     });
   }
 };

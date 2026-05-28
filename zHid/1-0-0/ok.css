@@ -122,26 +122,6 @@ button[zhidb] {/* button повышаем приоретет */
 /* ✦ button.B-I(x) p,s icon ✦ *//* #endregion */
 
 /* ✦ Открыть/Закрыть [zhid] .zHid ✦ *//* #region */
-/* • zhid="{цифра}"
-      <div zhid="1" - Всегда открыто
-      <div zhid="0" - Всегда закрыто
-      <div zhid=""  - Экран больше 768px: Открыто
-                    - Экран меньше 769px: Закрыто
-                    • Автозакрытие: (При первой загрузке страницы и когда экран меньше 768px.)
-
-   • Видемость при закрытии: (style="zHid:{цыфры}ex")
-      <div style="--zHid:3ex"
-      <div style="--zHid:7ex"
-      undefined = 4ex
-        ex - Высота шрифта в нижнем регистре
-           - Можно использовать все виды: px, em ...
-    
-   • <button zhidb> - кнопка для Открыть/Закрыть
-   
-  <div style="--zHid:3" zhid="1"><button zhidb></button>
-    ...
-  </div>
-*/
     /* ✦✦ ! ✦✦ *//* #region */
 [zhid] {
   --zHidC: var(--bg, #fff);/* Цвет затемнения (Обычно цвет заднего фона) */
@@ -183,11 +163,17 @@ button[zhidb] {/* button повышаем приоретет */
 
     /* ✦✦ Закрыто ✦✦ *//* #region */
         /* ✦✦✦ ! ✦✦✦ *//* #region */
-[zhid]::after, [zhid]::before {
+[zhid]::after,   /* Затемнение с низу */
+[zhid]::before { /* Доп защита от нажатия. Прозрачный div на всё окно */
   position: absolute!important;
   left: 0;
   right: 0;
   bottom: 0;
+}
+[zhid]:not([zhid="0"])::before {/* Доп защита от нажатия. Прозрачный div на всё окно */
+  content: '';
+  z-index: 3;
+  top: 0;
 }
 
 [zhid]::after {z-index: 2;/* Затемнение с низу */
@@ -199,18 +185,6 @@ button[zhidb] {/* button повышаем приоретет */
 }
 [zhid="0"]::after {/* Открыли! Уберём анимацию*/
   transition: 0s
-}
-/* Изменение: 'Запрет нажатия/обводка на элементы когда закрыто' ::before */
-[zhid]:not([zhid="0"])::before {/* Убераем возможномть нажать (Когда закрыто), полезно! */
-  z-index: 3;
-  top: 0;
-}
-/* Уберём возможное нажатие на <button>✓ когда закрыто, для внутрених .zHid2, .zHid3 */
-[zhid]:not([zhid="0"], .zHid2, .zHid3) :is([zhidb="2"], [zhidb="3"]),/* Уровень 1, и уберём в Уровень2 и Уровень3 */
-.zHid2:not([zhid="0"]) :is([zhidb="3"]) {/* Уровень2, и уберём в Уровне3 */
-  z-index: 2!important;
-  pointer-events: none;
-  opacity: .4;
 }
         /* ✦✦✦ ! ✦✦✦ *//* #endregion */
 
@@ -228,14 +202,11 @@ button[zhidb] {/* button повышаем приоретет */
   [zhid="1"]::after {/* затемнение */
     height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
-  [zhid="1"]::before {/* нажатия/обводка на элементы Разрешена */
+  [zhid="1"]::before {/* Доп защита от нажатия. Прозрачный div на всё окно */
     content: '';
   }
-  /* button */
-  [zhid="1"]:not(.zHid2, .zHid3) [zhidb] {
-    pointer-events: none;
-  }
   
+  /* button */
   [zhid="1"] [zhidb] s,
   .zHid2[zhid="1"] [zhidb="2"] s,
   .zHid3[zhid="1"] [zhidb="3"] s {--B-I-C: #0b0;}
@@ -246,6 +217,7 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -80%) rotate(45deg);
   }
   
+  /* Для текста + стрелка с низу: */
   [zhid="1"].zHidTxt [zhidb] {
     top: 0;
     bottom: unset;
@@ -253,7 +225,16 @@ button[zhidb] {/* button повышаем приоретет */
   [zhid="1"].zHidTxt span {/* Отступ контенера с права для текста под кнопку */
     display: block;
   }
+  
+  /* Уберём возможное нажатие на <button>✓ когда закрыто, для внутрених .zHid2, .zHid3 */
+  [zhid="1"]:not(.zHid2, .zHid3) :is([zhidb="2"], [zhidb="3"]),/* Уровень 1, и уберём в Уровень2 и Уровень3 */
+  [zhid="1"].zHid2 :is([zhidb="3"]) {/* Уровень2, и уберём в Уровне3 */
+    z-index: 2;
+    pointer-events: none;
+    opacity: .4;
+  }
 }
+
 /* Авто закрытие всего когда экран меньше или ровно 699px и [zhid]:not([zhid="0"]) */
 @media (max-width: 699px) {/* меньше или ровно 699 */
   [zhid]:not([zhid="0"]) {
@@ -267,14 +248,10 @@ button[zhidb] {/* button повышаем приоретет */
   [zhid]:not([zhid="0"])::after {
     height: var(--zHidHs);/* Для анимации открытия затемнения */
   }
-  [zhid]:not([zhid="0"])::before {/* нажатия/обводка на элементы Разрешена */
+  [zhid]:not([zhid="0"])::before {/* Доп защита от нажатия. Прозрачный div на всё окно */
     content: '';
   }
   /* button */
-  [zhid]:not([zhid="0"], .zHid2, .zHid3) [zhidb] {
-    pointer-events: none;
-  }
-  
   [zhid]:not([zhid="0"]) [zhidb=""] s,
   .zHid2:not([zhid="0"]) [zhidb="2"] s,
   .zHid3:not([zhid="0"]) [zhidb="3"] s {--B-I-C: #0b0}
@@ -285,12 +262,21 @@ button[zhidb] {/* button повышаем приоретет */
     transform: translate(-50%, -80%) rotate(45deg);
   }
   
+  /* Для текста + стрелка с низу: */
   [zhid].zHidTxt:not([zhid="0"]) [zhidb] {/* Кнопку на верх */
     top: 0;
     bottom: unset;
   }
   [zhid].zHidTxt:not([zhid="0"]) span {/* Отступ контенера с права для текста под кнопку */
     display: block;
+  }
+  
+  /* Уберём возможное нажатие на <button>✓ когда закрыто, для внутрених .zHid2, .zHid3 */
+  [zhid]:not([zhid="0"], .zHid2, .zHid3) :is([zhidb="2"], [zhidb="3"]),/* Уровень 1, и уберём в Уровень2 и Уровень3 */
+  .zHid2:not([zhid="0"]) :is([zhidb="3"]) {/* Уровень2, и уберём в Уровне3 */
+    z-index: 2;
+    pointer-events: none;
+    opacity: .4;
   }
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
