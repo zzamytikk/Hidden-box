@@ -114,7 +114,7 @@ button[zhidb] {/* button повышаем приоретет */
   background: #0000;
   border-width: 0 1px 1px 0;/* right body */
   border-radius: 0 2px 1px 2px;
-  box-shadow: 1px 1px 3px -1px var(--B-I-C);
+  box-shadow: 1px 1px 3px -1px var(--B-I-C), 1px 1px 2px #0002, 1px 1px 2px #fff2;
   clip: rect(0px, 100px, 100px, 0px);/* Скроем свечение с другой стороны */
   transition: .4s;
 }
@@ -294,32 +294,37 @@ button[zhidb] {/* button повышаем приоретет */
   }
 }
     /* ✦✦ Закрыто ✦✦ *//* #endregion */
-    
-    /* ✦✦ В одну строчку с затемнением ✦✦ *//* #region */
+/* ✦ Открыть/Закрыть [zhid] ✦ *//* #endregion */
+
+/* ✦ В одну строчку с затемнением ✦ *//* #region */
 .zHidTx1 {/* button Открыть/Закрыть */
   --zHidx: nowrap; /* white-space: (nowrap || unset) Запрещаем перенос строк */
   --zHidx2: '';    /* ('' || unset) Показать/Скрыть Затемнение */
   --zHidx3: hidden;/* overflow: (hidden || unset) Обрезаем видимость */
 
-  --zHidC: #0000;  /* Затемнение с низу.(Уберём) */
+  --zHidC: #0000;  /* Затемнение с низу. (Уберём) */
   --zHidH: 2.5ex;  /* Размер закрытия. на 1 строчку */
+  
+  --zHidtx-BG: var(--zHidtx-bg, var(--all-bg));/* Цвет фона, для затемнения. Свой||--all-bg */
 }
 [zhidtx-t] {/* <u> Затемняем обрезанный текст, в 1 строчку */
-  display: var(--zHidX4, unset);   /* display: (block || unset) */
+  display: var(--zHidX4, unset);   /* (block || unset) */
   position: relative;
   white-space: var(--zHidX, unset);/* (nowrap || unset) Запрещаем перенос строк, когда zHid закрыт! */
   overflow: var(--zHidX3, unset);  /* (hidden || unset) Обрезаем видимость */
 }
-[zhidtx-t]::before, [zhidtx-s]::before {/* <u>, <s> */
+[zhidtx-t]::before {
   content: var(--zHidX2, unset);/* ('' || unset) Показать/Скрыть Затемнение */
   position: absolute;
   top:0;
   right: 0;
   width: 2em;
   height: 100%;
-  background: linear-gradient(270deg, var(--ram-br), #0000);
+  background: linear-gradient(270deg, var(--zHidtx-BG), #0000);
 }
-/* Пример:
+/* ✦ В одну строчку с затемнением ✦ *//* #endregion */
+
+/* 
           <div class="ram-V0 ram-V2 gI-poi all-c7"><div>
             <div class="zHid3 zHidTx1" zhid="1"><button zhidb="3"><p><s></s></p></button>
             <u zhidtx-t><b>Список1</b> Пример длинного заголовка.. Прям не влазит:</u>
@@ -359,5 +364,3 @@ button[zhidb] {/* button повышаем приоретет */
             </div>
           </div></div>
 */
-    /* ✦✦ В одну строчку с затемнением ✦✦ *//* #endregion */
-/* ✦ Открыть/Закрыть [zhid] ✦ *//* #endregion */
