@@ -3,19 +3,13 @@
     © Copyright Плюшки для сайтов 2024
 */
 
-/* ✦ .tema8 Для светлого фона <body class="tema8" ✦ *//* #region */
-body, .tema8 {
-  --bg: #fff;  /* background Фон сайта */
-  /*--Ct: #333;*/  /* Основной цвет для текста */
+/* ✦ body ✦ *//* #region */
+body {
+  /* Тема сайта: */
+  --bg: light-dark(#fff, #012);/* background: Фон сайта */
+ /* --Ct: light-dark(#000, #ccc);/* color:      Основной цвет текста */
 }
-/* ✦ .tema8 Для светлого фона <body class="tema8" ✦ *//* #endregion */
-
-/* ✦ .temaT Для тёмного фона <body class="temaT" ✦ *//* #region */
-.temaT {/* По умолчанию белый фон! --bg: #fff; --Ct: #333; */
-  --bg: #012;  /* background Фон сайта */
-  /*--Ct: #ccc;*/  /* Основной цвет для текста */
-}
-/* ✦ .temaT Для тёмного фона <body class="temaT" ✦ *//* #endregion */
+/* ✦ body ✦ *//* #endregion */
 
 [zhidb], [zhidb] *,/* p, s */
 [zhidb] s::after, [zhidb] s::before {/* Помогает интеграции */
