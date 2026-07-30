@@ -35,6 +35,7 @@ body {
   background: #0000;
   cursor: pointer;
   text-decoration: unset;
+  -webkit-tap-highlight-color: transparent;/* Уберает подсветку или обводку кнопки на телефоне при нажатии */
   transition: .3s;
 }
 
@@ -47,6 +48,7 @@ body {
   [zhidb]:not([disabled]):hover > *{/* Отжимает opacity.3 (На телефоне остаёдся гореть после нажатия) */
     opacity: 1;
     color: var(--B-C);
+    cursor: default; /* Уберёт на телефоне поивление мерцание click (Прозрачный квадрат) */
   }
 }
 
