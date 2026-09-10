@@ -5,8 +5,7 @@
 var zHid = { //Спрятать/Показать hid
   //zHid.$();//★ Спрятать/Показать hid (Запускаем)
   $: () => { //Вешаем click
-    $('[zhid]').each((i, e, E) => {
-      if (!$(e).attr('onzhid')) {$(e).attr('onzhid', 1);//Повесили click
+    $('[zhid]:not([onzpro])').each((i, e, E) => {
         /* console.debug('class:', (e.className || 'Пусто')
           , '\n\tИщим /zHid[23]/.test(e.className):', /(^| )zHid[23]( |$)/.test(e.className)
         );*/
@@ -71,9 +70,6 @@ var zHid = { //Спрятать/Показать hid
               : B.attr('zhid') != 1 && B.css('max-height')=='max-content'? 'Открыли.':'Закрыли.'
           , '© КОНЕЦ.');*/
         });
-      } //else {
-        //console.debug('Была попытка повторного запуска скрипта zHid.$(click.zHid);', [e]);
-      //} 
-    });
+    }).attr('onzpro', '');
   }
 };
